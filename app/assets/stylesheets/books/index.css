@@ -4,6 +4,8 @@
 }
 /* トップページ上側 */
 .header-wrap{
+  max-width: 1600px;
+  min-width: 1280px;
   height: 450px;
   width: 100%;
 

@@ -2,7 +2,11 @@
   <div class="header-wrap">
       <div class="header-top">
         <ul>
-          <li>新規登録/ログイン</li>
+          <% if user_signed_in? %>
+          <li><%= link_to "マイページ", user_path(current_user.id) %>
+          <% else %>
+          <li><%= link_to "新規登録/ログイン", new_user_session_path %></li>
+          <% end %>
         </ul>
       </div>
       <div class="search-header">

@@ -1,0 +1,12 @@
+<h2>ユーザー編集ページ</h2>
+
+<%= form_with model: @user, local: true do |f| %>
+  <div class="field">
+    <%= f.label :user_image %><br/>
+    <%= f.file_field :user_image %>
+  </div>
+  <div>
+    <%= f.submit "編集する" %>
+  </div>
+  
+<% end%>
