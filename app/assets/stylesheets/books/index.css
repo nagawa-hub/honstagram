@@ -1,0 +1,36 @@
+.container{
+  display: flex;
+  flex-direction: column;
+}
+/* トップページ上側 */
+.header-wrap{
+  height: 450px;
+  width: 100%;
+
+  background-color: darkseagreen;
+}
+.header-top{
+  
+  background-color: dimgray;
+}
+.search-header{
+  background-color: #fff;
+  height: 96px;
+}
+
+/* トップページ下側 */
+.main-wrap{
+  display: flex;
+}
+
+/* メイン左側 */
+.main-contents{
+  background-color: dodgerblue;
+  
+}
+
+/* メイン右側 */
+.right-side{
+  background-color: firebrick;
+
+}
