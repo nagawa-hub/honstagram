@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   # association
   belongs_to :user
+  has_one_attached :book_image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
@@ -8,7 +9,7 @@ class Book < ApplicationRecord
   # validation
   with_options presence: true do
     validates :title
-    # validates :image
+    validates :book_image
     validates :author
     validates :description
     validates :score
