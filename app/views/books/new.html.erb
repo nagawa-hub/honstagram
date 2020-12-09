@@ -1,0 +1,42 @@
+<h2>本の投稿ページ</h2>
+
+<%= form_with model: @book, local: true do |f| %>
+  <div class="field">
+    <%= f.label :image %><br/>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %><br/>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :author %><br/>
+    <%= f.text_field :author %>
+  </div>
+
+  <div class="field">
+    <%= f.label :publisher %><br/>
+    <%= f.text_field :publisher %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br/>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :score %><br/>
+    <%= f.text_field :score %>
+  </div>
+
+  <div class="field">
+    <%= f.label :genre_id %><br/>
+    <%= f.text_field :genre_id %>
+  </div>
+
+  <div>
+    <%= f.submit "投稿する" %>
+  </div>
+<% end %>

@@ -1,4 +1,25 @@
 class BooksController < ApplicationController
   def index
   end
+
+  def new
+    @book = Book.new
+  end
+
+  def create
+    @book = Book.create(book_params)
+    if @book.valid?
+      redirect_to action: :index
+    else
+      render :new
+    end
+  end
+
+  private
+  def book_params
+    params
+      .require(:book)
+      .permit(:image,:title,:author,:description,:score,:genre_id,:publisher)
+      .merge(user_id: current_user.id)
+  end
 end
