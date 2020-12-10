@@ -1,24 +1,24 @@
-# README
+## Honstagram
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
 
-Things you may want to cover:
+## 目指している課題解決
+あなたは本を買う時、紙で買いますか？それとも電子版を買いますか？
 
-* Ruby version
+私自身は最近は電子書籍で買うことが多いです。本を保管するスペースの必要が無いからです。
 
-* System dependencies
+紙の本は買えば買うほど量が多くなって、本棚に置く場所がなくなり処分をする経験がよくありました。
 
-* Configuration
+しかし電子版で買うようになってから本棚が寂しく感じられるようにもなりました。
 
-* Database creation
+自分が読んだ本やお気に入りの本を本棚に保管でき、視覚的にも楽しめるのは、紙の本ならでは良さだと思います。
 
-* Database initialization
+このアプリはそういった紙で読む人も電子版で読む人でも,自分のお気に入りの本が詰まった本棚を共有できるようなプラットフォームを作れたら良いなと思い制作をしています。
 
-* How to run the test suite
+## 開発環境
+Ruby on Rails ver 6.0.0
 
-* Services (job queues, cache servers, search engines, etc.)
+## 今後の実装予定
 
-* Deployment instructions
-
-* ...
+## DB設計
+<img width="829" alt="d1fdbc402c1880d78c256056c0515d34" src="https://user-images.githubusercontent.com/72905756/101713344-cfe36580-3ada-11eb-9f54-917b0c738407.png">
