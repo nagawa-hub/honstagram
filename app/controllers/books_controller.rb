@@ -1,4 +1,8 @@
 class BooksController < ApplicationController
+  def top
+    @new_books = Book.all
+  end
+
   def index
   end
 
@@ -13,6 +17,11 @@ class BooksController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @book = Book.find(params[:id])
+    @reviews = @book.reviews.includes(:user)
   end
 
   private

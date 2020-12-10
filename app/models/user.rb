@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   # association
   has_many :books
+  has_many :reviews
 
   # validation
   with_options presence: true do

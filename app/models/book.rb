@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   # association
   belongs_to :user
+  has_many :reviews
   has_one_attached :book_image
 
   extend ActiveHash::Associations::ActiveRecordExtensions

@@ -1,0 +1,9 @@
+<h2>本の詳細</h2>
+
+<%= link_to "コメントする", new_book_review_path(@book) %>
+
+<% @reviews.map do |review| %>
+  <div>
+    <%= review.review_comment %>
+  </div>
+<% end %>
