@@ -1,24 +1,13 @@
-<div class="container">
-  <div class="header-wrap">
-      <div class="header-top">
-        <ul>
-          <% if user_signed_in? %>
-            <li><%= link_to "投稿", new_book_path %>
-            <li><%= link_to "マイページ", user_path(current_user.id) %>
-          <% else %>
-            <li><%= link_to "新規登録/ログイン", new_user_session_path %></li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="search-header">
-        <p>検索機能</p>
-      </div>
-  </div>
-  
+<%= render "shared/header"%>
+
+<div class="wrapper"> 
   <div class="main-wrap">
     <div class="main-contents">
       <div>
         ジャンルから探す
+        <ul>
+          <li><%= button_to "文芸・小説", "#" %></li>
+        </ul>
       </div>
       <div>
         新着の投稿

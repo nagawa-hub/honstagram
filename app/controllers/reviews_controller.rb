@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :set_search, only: [:new]
+
   def new
     @book = Book.find(params[:book_id])
     @review = Review.new
@@ -15,11 +17,14 @@ class ReviewsController < ApplicationController
   end
 
   private
+  def set_search
+    @q = Book.ransack(params[:q])
+  end
+  
   def review_params
     params
       .require(:review)
       .permit(:review_comment,:review_score)
       .merge(user_id: current_user.id)
   end
-
 end

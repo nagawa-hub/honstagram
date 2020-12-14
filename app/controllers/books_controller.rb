@@ -1,9 +1,14 @@
 class BooksController < ApplicationController
+  before_action :set_search, only: [:top,:index,:new,:show]
+  
   def top
-    @new_books = Book.all
+    @books = Book.includes(:user)
+    # 新着のデータを取得
+    @new_books = Book.includes(:user)
   end
 
   def index
+    @books = Book.includes(:user)
   end
 
   def new
@@ -24,11 +29,27 @@ class BooksController < ApplicationController
     @reviews = @book.reviews.includes(:user)
   end
 
+  def search
+    @q = Book.ransack(search_params)
+    @results = @q.result.includes(:user).page(params[:page]).per(10)
+  end
+
   private
+  def set_search
+    @q = Book.ransack(params[:q])
+  end
+
   def book_params
     params
       .require(:book)
       .permit(:book_image,:title,:author,:description,:score,:genre_id,:publisher)
       .merge(user_id: current_user.id)
   end
+
+  def search_params
+    params
+      .require(:q)
+      .permit(:title_cont)
+  end
+
 end

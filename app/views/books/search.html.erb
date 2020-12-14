@@ -1,0 +1,7 @@
+<%= render "shared/header"%>
+
+<h2>検索結果</h2>
+
+<% @results.each do |book| %>
+  <%= book.title %>
+<% end %>

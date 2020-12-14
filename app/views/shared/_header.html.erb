@@ -1,0 +1,41 @@
+<div class="header">
+  <div class="header-logo">
+    <h2 class=header-title>Honstagram</h2>
+  </div>
+  <div class="header-search">
+    <%= search_form_for @q, url: search_books_path, class: "search_container" do |f| %>
+      <%= f.text_field :title_cont, placeholder:"本 / 著者で検索する" %>
+      <%= f.button type:"submit" do %><i class="fas fa-search"></i><% end %>
+    <% end %>
+  </div>
+  <div class="header-right">
+    <% if user_signed_in? %>
+      <ul class="header-lists">
+        <li class="header-icon">
+          <%= link_to root_path do %>
+            <i class="fas fa-home"></i>
+          <% end %>
+        </li>
+        <li class="header-icon">
+          <%= link_to "#" do %>
+            <i class="far fa-compass"></i>
+          <% end %>
+        </li>
+        <li class="header-icon">
+          <%= link_to "#" do %>
+            <i class="far fa-heart"></i>
+          <% end %>
+        </li>
+        <li class="header-icon">
+          <%= link_to user_path(current_user.id) do %>
+            <i class="far fa-user"></i>
+          <% end %>
+        </li>
+      </ul>
+    <% else %>
+      <ul>
+        <li><%= link_to "新規登録/ログイン", new_user_session_path %></li>
+      </ul>
+    <% end %>
+  </div>
+</div>
