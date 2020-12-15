@@ -1,21 +1,37 @@
 <%= render "shared/header"%>
 
 <div class="user-wrapper">
-  <div class="user-main">
-    <div class="user-image">
-    </div>
+  <div class="user-main clearfix">
+    <% if @user.user_image.blank? %>
+      <img class="user-image" src="/assets/noimage.png">
+    <% else %>
+      <%= image_tag(@user.user_image.to_s,class:"user-image") %>
+    <% end %>
     <div class="user-info">
+      <p class="user-name">
+        ユーザー名
+        <%= link_to edit_user_path(@user.id) do %>
+          <i class="fas fa-cog"></i>
+        <% end %>
+      </p>
+      <ul class="info-list">
+        <li>投稿数：<li>
+        <li>フォロー：<li>
+        <li>フォロワー：<li>
+      </ul>
+      <p>ユーザーのコメント</p>
     </div>
   </div>
   <div class="user-article">
     <div class="clearfix">
-        <% @user_books.map do |user_book| %>
-          <%= link_to "#", class:"article-box" do %>
-            <%= image_tag(user_book.book_image, class:"book-image") %>
-            <h3 class="title"><%= user_book.title %></h3>
-            <p class="author">著者：<%= user_book.author %></p>
-          <% end %>
+      <% @user_books.map do |user_book| %>
+        <%= link_to "#", class:"article-box" do %>
+          <%= image_tag(user_book.book_image, class:"book-image") %>
+          <h3 class="title"><%= user_book.title %></h3>
+          <p class="author">著者：<%= user_book.author %></p>
         <% end %>
+      <% end %>
     </div>
   </div>
+  
 </div>
