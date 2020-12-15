@@ -18,6 +18,7 @@
   float: left;
   height: 200px;
   width: 200px;
+  box-shadow: 6px 6px 8px -4px rgba(0, 0, 0, 0.15);
 }
 .user-main .user-info{
   float: right;

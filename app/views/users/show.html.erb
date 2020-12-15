@@ -5,7 +5,7 @@
     <% if @user.user_image.blank? %>
       <img class="user-image" src="/assets/noimage.png">
     <% else %>
-      <%= image_tag(@user.user_image.to_s,class:"user-image") %>
+      <%= image_tag(@user.user_image.to_s, class:"user-image") %>
     <% end %>
     <div class="user-info">
       <p class="user-name">
@@ -25,7 +25,7 @@
   <div class="user-article">
     <div class="clearfix">
       <% @user_books.map do |user_book| %>
-        <%= link_to "#", class:"article-box" do %>
+        <%= link_to book_path(user_book.id), class:"article-box" do %>
           <%= image_tag(user_book.book_image, class:"book-image") %>
           <h3 class="title"><%= user_book.title %></h3>
           <p class="author">著者：<%= user_book.author %></p>

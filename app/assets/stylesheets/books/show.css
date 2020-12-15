@@ -1,0 +1,49 @@
+.book-wrapper{
+  font-size: 62.5%;
+  color: #333;
+  
+  width: 1120px;
+  margin: 30px auto 40px;
+}
+/* .clearfix::after{
+  content: '';
+  display: block;
+  clear: both;
+} */
+
+/* メイン */
+.book-main{
+  width: 760px;
+  display: block;
+  float: left;
+  font-size: 1.2rem;
+}
+.book-header{
+  margin-bottom: 30px;
+}
+.book-header .book-image{
+  float: left;
+  width: 240px;
+  height: 360px;
+  box-shadow: 6px 6px 8px -4px rgba(0, 0, 0, 0.15);
+}
+.book-header .book-info{
+  float: right;
+  width: 480px;
+}
+.book-user{
+  display: flex;
+  height: 100px;
+  font-size: 1.0rem;
+}
+.book-user .user-image{
+  width: 100px;
+}
+.book-user .user-info{
+  margin-left: 30px;
+}
+/* サイドメニュー */
+.book-side-menu{
+  width: 320px;
+  float: right;
+}

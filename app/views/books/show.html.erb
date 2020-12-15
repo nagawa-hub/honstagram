@@ -1,11 +1,32 @@
 <%= render "shared/header"%>
 
-<h2>本の詳細</h2>
-
-<%= link_to "コメントする", new_book_review_path(@book) %>
-
-<% @reviews.map do |review| %>
+<div class="book-wrapper clearfix">
+  <main class="book-main">
+    <section class="book-header clearfix">
+      <%= image_tag(@book.book_image, class:"book-image") %>
+      <div class="book-info">
+        <h2><%= @book.title %></h2>
+        <p>著者：<%= @book.author %></p>
+        <p>出版社：<%= @book.publisher %></p>
+        <p>投稿日：2020/12/13</p>
+        <p>ジャンル：文芸・小説</p>
+      </div>
+    </section>
+    <section class="book-description">
+      <h2>Description</h2>
+      <p>サンプルでの入力</p>
+      <div class="book-user">
+        <%= image_tag(@user.user_image.to_s, class:"user-image") %>
+        <div class="user-info">
+          <%= link_to user_path(@user) do %>
+            <p class="user-name">投稿者：<%= @user.user_name %></p>
+          <% end %>
+          <%= @user.user_comment %>
+        <div>
+      </div>
+    </section>
+  </main>
+  <div class="book-side-menu">
+    <h2>おすすめの投稿</h2>
   <div>
-    <%= review.review_comment %>
-  </div>
-<% end %>
+</div>
