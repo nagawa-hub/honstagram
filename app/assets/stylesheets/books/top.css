@@ -1,38 +1,149 @@
-.wrapper{
-  display: flex;
-  flex-direction: column;
+.top-wrapper{
+  /* フォントサイズを10pxに統一 */
+  font-size: 62.5%;
+  color: #333;
+  
+  width: 1120px;
+  margin: 30px auto 40px;
 }
-/* トップページ上側 */
-.header-wrap{
-  max-width: 1600px;
-  min-width: 1280px;
-  height: 450px;
+.clearfix::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* メイン */
+.main{
+  width: 760px;
+  display: block;
+  float: left;
+}
+.topic{
+  height: 300px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 4px -4px rgba(0, 0, 0, 0.15);
+  transition: 0.15s;
+}
+.topic .topic-image{
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+.topic .content{
+  float: left;
+  width: 50%;
+  height: 100%;
+  padding: 105px 25px 0;
+}
+.topic:hover{
+  opacity: 0.85;
+}
+.article-box{
+  display: block;
+  float: left;
+  height: 360px;
+  width: 160px;
+  margin: 15px 15px;
+  box-shadow: 6px 6px 8px -4px rgba(0, 0, 0, 0.15);
+}
+.article-box .book-image{
   width: 100%;
-
-  background-color: darkseagreen;
+  height: 200px
 }
-.header-top{
-  
-  background-color: dimgray;
+.article-box .title{
+  font-size: 1.4rem;
+  margin-top: 10px;
 }
-.search-header{
-  background-color: #fff;
-  height: 96px;
+.article-box .author{
+  font-size: 0.8rem;
 }
-
-/* トップページ下側 */
-.main-wrap{
-  display: flex;
+.article-box .desc{
+  overflow: hidden;
+  color: #333;
 }
-
-/* メイン左側 */
-.main-contents{
-  background-color: dodgerblue;
-  
+.article-box:hover{
+  opacity: 0.85;
 }
 
-/* メイン右側 */
-.right-side{
-  background-color: firebrick;
+/* サイドメニュー */
+.side-menu{
+  width: 320px;
+  float: right;
+}
+.ranking-list{
+  margin-bottom: 30px;
+  list-style: none;
+  counter-reset: ranking;
+}
+.ranking-list .ranking-item{
+  margin-top: 15px;
+}
+.ranking-list .ranking-item a{
+  display: block;
+  font-size: 0;
+}
+.ranking-list .ranking-item a:hover{
+  opacity: 0.8;
+}
+.ranking-list .ranking-image{
+  height: 100px;
+  width: 70px;
+}
+.ranking-list .ranking-text{
+  display: inline-block;
+  width: 180px;
+  color: #000;
+  vertical-align: top;
+  font-size: 1.0rem;
+  line-height: 1.5;
+}
+.ranking-list .ranking-order{
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin: 0 10px;
+  border: 1px solid #ccc;
+  color: #aaa;
+  text-align: center;
+  font-weight: bold;
+  line-height: 23px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.ranking-list .ranking-item:nth-of-type(1) 
+.ranking-order,
+.ranking-list .ranking-item:nth-of-type(2) 
+.ranking-order,
+.ranking-list .ranking-item:nth-of-type(3) 
+.ranking-order{
+  border: none;
+  color: #fff;
+  font-weight: normal;
+}
+.ranking-list .ranking-item:nth-of-type(1) 
+.ranking-order{
+  background-color: #dab413;
+}
+.ranking-list .ranking-item:nth-of-type(2) 
+.ranking-order{
+  background-color: #6e7b84;
+}
+.ranking-list .ranking-item:nth-of-type(3) 
+.ranking-order{
+  background-color: #a0541a;
+}
 
+.ranking-list .ranking-order::before{
+  content: counter(ranking);
+  counter-increment: ranking;
+  display: inline-block;
+  font-size: 1.0rem;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.footer{
+  width: 100%;
 }

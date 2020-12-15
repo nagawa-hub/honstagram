@@ -1,9 +1,21 @@
 <%= render "shared/header"%>
 
-<h2>ユーザーページ</h2>
-
-<%= link_to "編集", edit_user_path(@user) %>
-
-<% @user_books.map do |user_book| %>
-  <%= link_to image_tag(user_book.book_image), "#" if user_book.book_image.attached? %>
-<% end %>
+<div class="user-wrapper">
+  <div class="user-main">
+    <div class="user-image">
+    </div>
+    <div class="user-info">
+    </div>
+  </div>
+  <div class="user-article">
+    <div class="clearfix">
+        <% @user_books.map do |user_book| %>
+          <%= link_to "#", class:"article-box" do %>
+            <%= image_tag(user_book.book_image, class:"book-image") %>
+            <h3 class="title"><%= user_book.title %></h3>
+            <p class="author">著者：<%= user_book.author %></p>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+</div>

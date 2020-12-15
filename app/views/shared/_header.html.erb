@@ -1,4 +1,4 @@
-<div class="header">
+<header class="header">
   <div class="header-logo">
     <h2 class=header-title>Honstagram</h2>
   </div>
@@ -10,7 +10,7 @@
   </div>
   <div class="header-right">
     <% if user_signed_in? %>
-      <ul class="header-lists">
+      <ul class="header-list">
         <li class="header-icon">
           <%= link_to root_path do %>
             <i class="fas fa-home"></i>
@@ -38,4 +38,4 @@
       </ul>
     <% end %>
   </div>
-</div>
+</header>

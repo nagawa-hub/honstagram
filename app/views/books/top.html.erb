@@ -1,27 +1,47 @@
 <%= render "shared/header"%>
 
-<div class="wrapper"> 
-  <div class="main-wrap">
-    <div class="main-contents">
-      <div>
-        ジャンルから探す
-        <ul>
-          <li><%= button_to "文芸・小説", "#" %></li>
-        </ul>
+<div class="top-wrapper clearfix">
+  <main class="main">
+    <section class="topic clearfix">
+      <img class="topic-image" src="/assets/top_image.jpg">
+      <div class="topic-content">
       </div>
-      <div>
-        新着の投稿
+    </section>
+    <section class="articles">
+      <h2>最新の投稿</h2>
+      <div class="clearfix">
         <% @new_books.map do |new_book| %>
-          <ul>
-            <li><%= link_to new_book.title, book_path(new_book.id) %></li>
-          </ul>
+          <%= link_to "#", class:"article-box" do %>
+            <%= image_tag(new_book.book_image, class:"book-image") %>
+            <h3 class="title"><%= new_book.title %></h3>
+            <p class="author">著者：<%= new_book.author %></p>
+            <p class="desc">これはサンプルです</p>
+          <% end %>
         <% end %>
       </div>
-    </div>
-    <div class="right-side">
-      <div>
-        人気の投稿
-      </div>
-    </div>
+    </section>
+  </main>
+
+  <div class="side-menu">
+    <h2 class="ranking-header">人気の投稿</h2>
+    <ol class="ranking-list">
+      <li class="ranking-item">
+        <a href="#">
+          <img class="ranking-image" src="/assets/top_image.jpg">
+          <span class="ranking-order"></span>
+          <p class="ranking-text">サンプル</p>
+        </a>
+      </li>
+      <li class="ranking-item">
+        <a href="#">
+          <img class="ranking-image" src="/assets/top_image.jpg">
+          <span class="ranking-order"></span>
+          <p class="ranking-text">これはサンプルですね</p>
+        </a>
+      </li>
+    </ol>
   </div>
 </div>
+
+<footer class="footer">
+</footer>

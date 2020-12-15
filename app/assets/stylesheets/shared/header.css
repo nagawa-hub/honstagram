@@ -1,5 +1,5 @@
 .header{
-  height: 100px;
+  height: 70px;
   width: 100%;
   background-color: #F4F5F7;
 
@@ -61,7 +61,7 @@
 .header-right{
   width: 300px;
 }
-.header-lists{
+.header-list{
   height: 100%;
   display: flex;
   justify-content: space-around;
