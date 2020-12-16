@@ -2,7 +2,7 @@
 
 <h2>本の投稿ページ</h2>
 
-<%= form_with model: @book, local: true do |f| %>
+<%= form_with model: @book, url: books_path, local: true do |f| %>
   <div class="field" id="book_image">
     <%= f.label :book_image %><br/>
     <%= f.file_field :book_image %>
@@ -38,6 +38,11 @@
   <div class="field">
     <%= f.label :genre_id %><br/>
     <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}) %>
+  </div>
+
+  <div class="tag-field", id='tag-field'>
+      <%= f.label :tag_name, "タグ" %>
+      <%= f.text_field :tag_name %>
   </div>
 
   <div>

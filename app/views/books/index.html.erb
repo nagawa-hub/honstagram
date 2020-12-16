@@ -1,5 +1,16 @@
 <%= render "shared/header"%>
 
-<h2>全て</h2>
+<div class="index-wrapper">
+  <div class="clearfix">
+    <% @books.map do |book| %>
+      <%= link_to book_path(book.id), class:"article-box" do %>
+        <%= image_tag(book.book_image, class:"book-image") %>
+        <h3 class="title"><%= book.title %></h3>
+        <p class="author">著者：<%= book.author %></p>
+        <p class="desc">これはサンプルです</p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
 

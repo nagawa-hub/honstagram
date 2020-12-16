@@ -7,16 +7,17 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.includes(:user)
+    @books = Book.includes(:user).order("created_at DESC").page(params[:page]).per(20)
   end
 
   def new
-    @book = Book.new
+    @book = BooksTag.new
   end
 
   def create
-    @book = Book.create(book_params)
+    @book = BooksTag.new(book_params)
     if @book.valid?
+      @book.save
       redirect_to action: :index
     else
       render :new
@@ -47,8 +48,16 @@ class BooksController < ApplicationController
 
   def book_params
     params
-      .require(:book)
-      .permit(:book_image,:title,:author,:description,:score,:genre_id,:publisher)
+      .require(:books_tag)
+      .permit(:book_image,
+              :title,
+              :author,
+              :description,
+              :score,
+              :genre_id,
+              :publisher,
+              :tag_name
+            )
       .merge(user_id: current_user.id)
   end
 end

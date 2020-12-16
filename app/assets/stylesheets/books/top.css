@@ -75,21 +75,21 @@
   list-style: none;
   counter-reset: ranking;
 }
-.ranking-list .ranking-item{
+.ranking-list .item{
   margin-top: 15px;
 }
-.ranking-list .ranking-item a{
+.ranking-list .item a{
   display: block;
   font-size: 0;
 }
-.ranking-list .ranking-item a:hover{
+.ranking-list .item a:hover{
   opacity: 0.8;
 }
-.ranking-list .ranking-image{
+.ranking-list .image{
   height: 100px;
   width: 70px;
 }
-.ranking-list .ranking-text{
+.ranking-list .text{
   display: inline-block;
   width: 180px;
   color: #000;
@@ -97,7 +97,7 @@
   font-size: 1.0rem;
   line-height: 1.5;
 }
-.ranking-list .ranking-order{
+.ranking-list .order{
   display: inline-block;
   width: 25px;
   height: 25px;
@@ -111,30 +111,30 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-.ranking-list .ranking-item:nth-of-type(1) 
-.ranking-order,
-.ranking-list .ranking-item:nth-of-type(2) 
-.ranking-order,
-.ranking-list .ranking-item:nth-of-type(3) 
-.ranking-order{
+.ranking-list .item:nth-of-type(1) 
+.order,
+.ranking-list .item:nth-of-type(2) 
+.order,
+.ranking-list .item:nth-of-type(3) 
+.order{
   border: none;
   color: #fff;
   font-weight: normal;
 }
-.ranking-list .ranking-item:nth-of-type(1) 
-.ranking-order{
+.ranking-list .item:nth-of-type(1) 
+.order{
   background-color: #dab413;
 }
-.ranking-list .ranking-item:nth-of-type(2) 
-.ranking-order{
+.ranking-list .item:nth-of-type(2) 
+.order{
   background-color: #6e7b84;
 }
-.ranking-list .ranking-item:nth-of-type(3) 
-.ranking-order{
+.ranking-list .item:nth-of-type(3) 
+.order{
   background-color: #a0541a;
 }
 
-.ranking-list .ranking-order::before{
+.ranking-list .order::before{
   content: counter(ranking);
   counter-increment: ranking;
   display: inline-block;
