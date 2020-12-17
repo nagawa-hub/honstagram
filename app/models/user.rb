@@ -7,6 +7,8 @@ class User < ApplicationRecord
   # association
   has_many :books
   has_many :reviews
+  has_many :favorites
+  has_many :fav_books, through: :favorites, source: :book
   # フォロー機能
   has_many :relationships
   has_many :following_users, through: :relationships, source: :followed

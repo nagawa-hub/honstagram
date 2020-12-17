@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get :top,:search
     end
     resources :reviews, only: [:new,:create]
+    resources :favorites, only: [:create,:destroy]
   end
 
 end
