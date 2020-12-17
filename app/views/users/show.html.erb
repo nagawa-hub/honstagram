@@ -13,6 +13,7 @@
         <%= link_to edit_user_path(@user.id) do %>
           <i class="fas fa-cog"></i>
         <% end %>
+        <%= render "shared/follow_button"%>
       </p>
       <ul class="info-list">
         <li>投稿数：<li>
@@ -33,13 +34,14 @@
       <% end %>
     </div>
   </div>
-
-  <div class="post-btn">
-  <%= link_to new_book_path do%>
-    <span class="post-btn-text"></span>
-    <i class="fas fa-pencil-alt"></i>
-  <% end %>
-  </div>
   
+  <% if user_signed_in? && @user.id === current_user.id %>
+    <%= link_to new_book_path do%>
+      <div class="post-btn">
+        <i class="fas fa-pencil-alt post-btn-icon"></i>
+        <span class="post-btn-text">投稿する</span>
+      </div>
+    <% end %>
+  <% end %>
   
 </div>

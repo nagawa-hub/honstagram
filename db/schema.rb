@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_16_060501) do
+ActiveRecord::Schema.define(version: 2020_12_16_131043) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 2020_12_16_060501) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "followed_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["user_id", "followed_id"], name: "index_relationships_on_user_id_and_followed_id", unique: true
+    t.index ["user_id"], name: "index_relationships_on_user_id"
+  end
+
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "review_comment", null: false
     t.integer "review_score", null: false
@@ -91,6 +101,8 @@ ActiveRecord::Schema.define(version: 2020_12_16_060501) do
   add_foreign_key "book_tag_relations", "books"
   add_foreign_key "book_tag_relations", "tags"
   add_foreign_key "books", "users"
+  add_foreign_key "relationships", "users"
+  add_foreign_key "relationships", "users", column: "followed_id"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
 end

@@ -1,6 +1,8 @@
 <header class="header">
   <div class="header-logo">
-    <h2 class=header-title>Honstagram</h2>
+    <%= link_to root_path do %>
+      <h2 class=header-title>Honstagram</h2>
+    <% end %>
   </div>
   <div class="header-search">
     <%= search_form_for @q, url: search_books_path, class: "search_container" do |f| %>
@@ -12,8 +14,8 @@
     <% if user_signed_in? %>
       <ul class="header-list">
         <li class="header-icon">
-          <%= link_to root_path do %>
-            <i class="fas fa-home"></i>
+          <%= link_to user_path(current_user.id) do %>
+            <i class="far fa-user"></i>
           <% end %>
         </li>
         <li class="header-icon">
@@ -27,8 +29,8 @@
           <% end %>
         </li>
         <li class="header-icon">
-          <%= link_to user_path(current_user.id) do %>
-            <i class="far fa-user"></i>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fas fa-bars"></i>
           <% end %>
         </li>
       </ul>
