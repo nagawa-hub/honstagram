@@ -25,34 +25,15 @@
   <div class="side-menu">
     <h2 class="ranking-header">Ranking</h2>
     <ol class="ranking-list">
-      <li class="item">
-        <a href="#">
-          <img class="image" src="/assets/top_image.jpg">
-          <span class="order"></span>
-          <p class="text">サンプル</p>
-        </a>
-      </li>
-      <li class="item">
-        <a href="#">
-          <img class="image" src="/assets/top_image.jpg">
-          <span class="order"></span>
-          <p class="text">これはサンプルですね</p>
-        </a>
-      </li>
-      <li class="item">
-        <a href="#">
-          <img class="image" src="/assets/top_image.jpg">
-          <span class="order"></span>
-          <p class="text">これはサンプルですね</p>
-        </a>
-      </li>
-      <li class="item">
-        <a href="#">
-          <img class="image" src="/assets/top_image.jpg">
-          <span class="order"></span>
-          <p class="text">これはサンプルですね</p>
-        </a>
-      </li>
+      <% @ranking_books.map do |ranking_book| %>
+        <li class="item">
+          <%= link_to book_path(ranking_book.id) do %>
+            <%= image_tag(ranking_book.book_image, class:"image") %>
+            <span class="order"></span>
+            <p class="text"><%= ranking_book.title %></p>
+          <% end %>
+        </li>
+      <% end %>
     </ol>
   </div>
 </div>

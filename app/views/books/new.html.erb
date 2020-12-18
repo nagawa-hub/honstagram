@@ -1,46 +1,56 @@
 <%= render "shared/header"%>
 
-<h2>本の投稿ページ</h2>
+<div class="post-wrapper">
+  <%= form_with model: @book, url: books_path, local: true do |f| %>
+    
+    <div class="post-top-area clearfix">
+      <div class="image-area">
+        <div id="preview-space"></div>
 
-<%= form_with model: @book, url: books_path, local: true do |f| %>
-  <div class="field" id="book_image">
-    <%= f.label :book_image %><br/>
-    <%= f.file_field :book_image %>
-  </div>
+        <div class="image-field" id="book_image">
+          <%= f.label :book_image, "画像" %><span class="must-icon">*</span><br/>
+          <%= f.file_field :book_image %>
+        </div>
+      </div>
 
-  <div id="preview-space"></div>
+      <div class="info-area">
+        <div class="field">
+          <%= f.label :title, "タイトル" %><span class="must-icon">*</span><br/>
+          <%= f.text_field :title, class:"input-box"%>
+        </div>
 
-  <div class="field">
-    <%= f.label :title %><br/>
-    <%= f.text_field :title %>
-  </div>
+        <div class="field">
+          <%= f.label :author, "著者" %><span class="must-icon">*</span><br/>
+          <%= f.text_field :author, class:"input-box"%>
+        </div>
 
-  <div class="field">
-    <%= f.label :author %><br/>
-    <%= f.text_field :author %>
-  </div>
+        <div class="field">
+          <%= f.label :publisher, "出版社" %><br/>
+          <%= f.text_field :publisher, class:"input-box"%>
+        </div>
 
-  <div class="field">
-    <%= f.label :publisher %><br/>
-    <%= f.text_field :publisher %>
-  </div>
+        <div class="field">
+          <%= f.label :genre_id, "ジャンル" %><span class="must-icon">*</span><br/>
+          <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, class:"input-box") %>
+        </div>
 
-  <div class="field">
-    <%= f.label :description %><br/>
-    <%= f.text_field :description %>
-  </div>
+        <div class="field", id='tag-field'>
+          <%= f.label :tag_name, "#タグ" %><br/>
+          <%= f.text_field :tag_name, class:"input-box"%>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :genre_id %><br/>
-    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}) %>
-  </div>
+    <div class="post-bottom-area">
+      <div class="field text-area">
+        <%= f.label :description %><span class="must-icon">*</span><br/>
+        <%= f.text_area :description, class:"text-area" %>
+      </div>
+    
 
-  <div class="tag-field", id='tag-field'>
-      <%= f.label :tag_name, "タグ" %>
-      <%= f.text_field :tag_name %>
-  </div>
-
-  <div>
-    <%= f.submit "投稿する" %>
-  </div>
-<% end %>
+      <div>
+        <%= f.submit "投稿する" %>
+      </div>
+    </div>
+  <% end %>
+</div>

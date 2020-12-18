@@ -2,7 +2,9 @@ class BooksController < ApplicationController
   before_action :set_search, only: [:top,:index,:new,:show]
   
   def top
-    # 最新の投稿
+    @ranking_books = Book.find(
+                      Favorite.group(:book_id).order("count(book_id) DESC").limit(5).pluck(:book_id)
+                    )
     @new_books = Book.includes(:user).order("created_at DESC").first(8)
   end
 
@@ -20,6 +22,7 @@ class BooksController < ApplicationController
       @book.save
       redirect_to action: :index
     else
+      set_search
       render :new
     end
   end

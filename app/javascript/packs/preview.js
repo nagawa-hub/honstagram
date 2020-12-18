@@ -16,6 +16,7 @@ const createPreview = () => {
     const blobImage = document.createElement('img');
     // 生成したimg要素のsrc属性に画像情報を設定
     blobImage.setAttribute('src', blob);
+    blobImage.setAttribute('class', 'preview-image');
     // 生成したHTMLの要素をブラウザに表示させる
     imageElement.appendChild(blobImage);
     previewSpace.appendChild(imageElement);
