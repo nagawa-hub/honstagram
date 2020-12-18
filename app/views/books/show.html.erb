@@ -11,6 +11,7 @@
         <p>投稿日：2020/12/13</p>
         <p>ジャンル：文芸・小説</p>
         <%= render "shared/favorite_button" %>
+        <%= render "shared/stars"%>
       </div>
     </section>
     <section class="book-description">
@@ -30,4 +31,12 @@
   <div class="book-side-menu">
     <h2>おすすめの投稿</h2>
   <div>
+  <% if user_signed_in? && @user.id != current_user.id %>
+    <%= link_to new_book_review_path(@book.id) do%>
+      <div class="post-btn">
+        <i class="fas fa-pencil-alt post-btn-icon"></i>
+        <span class="post-btn-text">レビューをする</span>
+      </div>
+    <% end %>
+  <% end %>
 </div>

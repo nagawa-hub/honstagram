@@ -28,6 +28,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @user = @book.user
     @reviews = @book.reviews.includes(:user)
+    @score_average = @book.reviews.average(:review_score)
   end
 
   def search

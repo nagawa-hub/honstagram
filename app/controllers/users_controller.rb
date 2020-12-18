@@ -2,8 +2,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show,:edit,:update]
   before_action :set_search, only: [:show,:edit]
   def show
-    @user = User.find(params[:id])
     @user_books = @user.books
+    @post_count = Book.where(user_id: @user.id).count
+    @following_count = Relationship.where(user_id: @user.id).count
+    @followed_count = Relationship.where(followed_id: @user.id).count
   end
 
   def edit
@@ -27,7 +29,5 @@ class UsersController < ApplicationController
     params
       .required(:user)
       .permit(:name,:user_image,:user_comment)
-  end
-
-  
+  end 
 end

@@ -16,9 +16,9 @@
         <%= render "shared/follow_button"%>
       </p>
       <ul class="info-list">
-        <li>投稿数：<li>
-        <li>フォロー：<li>
-        <li>フォロワー：<li>
+        <li>投稿数：<%= @post_count %>件<li>
+        <li>フォロー：<%= @following_count %><li>
+        <li>フォロワー：<%= @followed_count %><li>
       </ul>
       <p>ユーザーのコメント</p>
     </div>
