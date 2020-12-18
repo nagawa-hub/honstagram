@@ -6,7 +6,6 @@ class BooksTag
     :book_image,
     :author,
     :description,
-    :score,
     :genre_id,
     :publisher,
     :user_id,
@@ -19,7 +18,6 @@ class BooksTag
     validates :book_image
     validates :author
     validates :description
-    validates :score
     validates :genre_id
   end
 
@@ -29,7 +27,6 @@ class BooksTag
       book_image: book_image,
       author: author,
       description: description,
-      score: score,
       genre_id: genre_id,
       publisher: publisher,
       user_id: user_id

@@ -23,7 +23,6 @@ class Book < ApplicationRecord
     validates :book_image
     validates :author
     validates :description
-    validates :score
     validates :genre_id
   end
 

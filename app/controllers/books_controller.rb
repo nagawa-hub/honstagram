@@ -54,7 +54,6 @@ class BooksController < ApplicationController
               :title,
               :author,
               :description,
-              :score,
               :genre_id,
               :publisher,
               :tag_name
