@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :favorites, only: [:index]
   end
   resources :relationships, only: [:create, :destroy]
-  resources :books, only: [:index,:new,:create,:show] do
+  resources :books, only: [:index,:new,:create,:show,:edit,:update] do
     collection do
       get :top,:search
     end

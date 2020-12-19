@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-  before_action :set_search, only: [:top,:index,:new,:show]
+  before_action :set_search, only: [:top,:index,:new,:show,:edit]
+  before_action :set_book, only: [:show,:edit,:update]
   
   def top
     @ranking_books = Book.find(
@@ -28,10 +29,15 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
     @user = @book.user
     @reviews = @book.reviews.includes(:user)
     @score_average = @book.reviews.average(:review_score)
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   def search
@@ -48,6 +54,10 @@ class BooksController < ApplicationController
     params
       .require(:q)
       .permit(:title_cont)
+  end
+
+  def set_book
+    @book = Book.find(params[:id])
   end
 
   def book_params

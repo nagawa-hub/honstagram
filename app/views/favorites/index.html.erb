@@ -1,3 +1,39 @@
-<%= render "shared/header" %>
+<%# CSSはusers/showと同じ %>
 
-<h2>お気に入り一覧</h2>
+<%= render "shared/header"%>
+
+<div class="user-wrapper">
+  <div class="user-main clearfix">
+    <% if @user.user_image.blank? %>
+      <img class="user-image" src="/assets/noimage.png">
+    <% else %>
+      <%= image_tag(@user.user_image.to_s, class:"user-image") %>
+    <% end %>
+    <div class="user-info">
+      <p class="user-name">
+        <%= @user.user_name %>
+        <%= link_to edit_user_path(@user.id) do %>
+          <i class="fas fa-cog"></i>
+        <% end %>
+        <%= render "shared/follow_button"%>
+      </p>
+      <ul class="info-list">
+        <li class="item">投稿数：<%= @post_count %>件<li>
+        <li class="item">フォロー：<%= @following_count %><li>
+        <li class="item">フォロワー：<%= @followed_count %><li>
+      </ul>
+      <p>ユーザーのコメント</p>
+    </div>
+  </div>
+  <div class="user-article">
+    <div class="clearfix">
+      <% @favorite_books.map do |favorite_book| %>
+        <%= link_to book_path(favorite_book.id), class:"article-box" do %>
+          <%= image_tag(favorite_book.book_image, class:"book-image") %>
+          <h3 class="title"><%= favorite_book.title %></h3>
+          <p class="author">著者：<%= favorite_book.author %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

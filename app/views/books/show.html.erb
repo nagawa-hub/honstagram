@@ -5,7 +5,12 @@
     <section class="book-header clearfix">
       <%= image_tag(@book.book_image, class:"book-image") %>
       <div class="book-info">
-        <h2><%= @book.title %></h2>
+        <p>
+          <%= @book.title %>
+          <%= link_to edit_book_path(@book.id) do %>
+            <i class="fas fa-cog"></i>          
+          <% end %>
+        </p>
         <p>著者：<%= @book.author %></p>
         <p>出版社：<%= @book.publisher %></p>
         <p>投稿日：2020/12/13</p>

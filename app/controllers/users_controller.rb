@@ -3,12 +3,15 @@ class UsersController < ApplicationController
   before_action :set_search, only: [:show,:edit]
   def show
     @user_books = @user.books
-    @post_count = Book.where(user_id: @user.id).count
+    @post_count = @user_books.count
     @following_count = Relationship.where(user_id: @user.id).count
     @followed_count = Relationship.where(followed_id: @user.id).count
   end
 
   def edit
+    @post_count = @user_books.count
+    @following_count = Relationship.where(user_id: @user.id).count
+    @followed_count = Relationship.where(followed_id: @user.id).count
   end
 
   def update

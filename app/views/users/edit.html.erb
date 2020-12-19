@@ -1,14 +1,44 @@
+<%# CSSはusers/showと同じ %>
+
 <%= render "shared/header"%>
 
-<h2>ユーザー編集ページ</h2>
-
-<%= form_with model: @user, local: true do |f| %>
-  <div class="field">
-    <%= f.label :user_image %><br/>
-    <%= f.file_field :user_image %>
+<div class="user-wrapper">
+  <div class="user-main clearfix">
+    <% if @user.user_image.blank? %>
+      <img class="user-image" src="/assets/noimage.png">
+    <% else %>
+      <%= image_tag(@user.user_image.to_s, class:"user-image") %>
+    <% end %>
+    <div class="user-info">
+      <p class="user-name">
+        <%= @user.user_name %>
+      </p>
+      <ul class="info-list">
+        <li class="item">投稿数：<%= @post_count %>件<li>
+        <li class="item">フォロー：<%= @following_count %><li>
+        <li class="item">フォロワー：<%= @followed_count %><li>
+      </ul>
+      <p>ユーザーのコメント</p>
+    </div>
   </div>
-  <div>
-    <%= f.submit "編集する" %>
-  </div>
+  <%# -- CSS users/edit -- %>
   
-<% end%>
+  <div class="edit-area">
+    
+    <h2>ユーザー情報の編集</h2>
+    <p>ユーザー名</p>
+    <p>画像</p>
+    <p>コメント</p>
+    <p>メールアドレス</p>
+    <p>パスワード</p>
+  </div>
+
+  <%# -- %>
+
+  <%= link_to user_path(@user) do%>
+    <div class="post-btn">
+      <i class="fas fa-undo post-btn-icon"></i>
+      <span class="post-btn-text">キャンセル</span>
+    </div>
+  <% end %>
+</div>
