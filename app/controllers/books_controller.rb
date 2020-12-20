@@ -32,6 +32,8 @@ class BooksController < ApplicationController
     @user = @book.user
     @reviews = @book.reviews.includes(:user)
     @score_average = @book.reviews.average(:review_score)
+    tag_id = BookTagRelation.where(book_id: @book.id).pluck(:tag_id)
+    @tag = Tag.find(tag_id)
   end
 
   def edit

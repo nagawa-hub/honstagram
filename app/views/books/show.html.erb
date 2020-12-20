@@ -15,6 +15,11 @@
         <p>出版社：<%= @book.publisher %></p>
         <p>投稿日：2020/12/13</p>
         <p>ジャンル：文芸・小説</p>
+        <p>#タグ：
+          <% @tag.map do |tag| %>
+            <%= tag.tag_name %>
+          <% end %>
+        </p>
         <%= render "shared/favorite_button" %>
         <%= render "shared/stars"%>
       </div>
