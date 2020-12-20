@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @post_count = @user_books.count
+    @post_count = @user.books.count
     @following_count = Relationship.where(user_id: @user.id).count
     @followed_count = Relationship.where(followed_id: @user.id).count
   end
@@ -19,6 +19,14 @@ class UsersController < ApplicationController
     redirect_to action: :show
   end
 
+  def guest
+    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password =  SecureRandom.urlsafe_base64
+    end
+    sign_in user
+    redirect_to root_path
+  end
+  
   private
   def set_user
     @user = User.find(params[:id])
@@ -27,7 +35,7 @@ class UsersController < ApplicationController
   def set_search
     @q = Book.ransack(params[:q])
   end
-  
+
   def user_params
     params
       .required(:user)

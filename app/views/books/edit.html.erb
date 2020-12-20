@@ -7,7 +7,9 @@
     
     <div class="post-top-area clearfix">
       <div class="image-area">
-        <div id="preview-space"></div>
+        <div id="preview-space">
+          <%= image_tag(@book.book_image, class:"preview-image") %>
+        </div>
 
         <div class="image-field" id="book_image">
           <%= f.label :book_image, "画像" %><span class="must-icon">*</span><br/>

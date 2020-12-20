@@ -40,6 +40,12 @@ class BooksController < ApplicationController
   end
 
   def update
+    if @book.update(update_params)
+      redirect_to action: :show
+    else
+      set_search
+      render :edit
+    end
   end
 
   def search
@@ -72,6 +78,19 @@ class BooksController < ApplicationController
               :genre_id,
               :publisher,
               :tag_name
+            )
+      .merge(user_id: current_user.id)
+  end
+
+  def update_params
+    params
+      .require(:book)
+      .permit(:book_image,
+              :title,
+              :author,
+              :description,
+              :genre_id,
+              :publisher,
             )
       .merge(user_id: current_user.id)
   end
