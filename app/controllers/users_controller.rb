@@ -1,17 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show,:edit,:update,:following_user,:followed_user]
   before_action :set_search, only: [:show,:edit,:following_user,:followed_user]
+  before_action :set_user_count, only: [:show,:edit,:followed_user,:following_user]
+  
   def show
     @user_books = @user.books
-    @post_count = @user_books.count
-    @following_count = Relationship.where(user_id: @user.id).count
-    @followed_count = Relationship.where(followed_id: @user.id).count
   end
 
   def edit
-    @post_count = @user.books.count
-    @following_count = Relationship.where(user_id: @user.id).count
-    @followed_count = Relationship.where(followed_id: @user.id).count
   end
 
   def update
@@ -28,17 +24,12 @@ class UsersController < ApplicationController
   end
 
   def followed_user
-    @post_count = @user.books.count
-    @following_count = Relationship.where(user_id: @user.id).count
-    @followed_count = Relationship.where(followed_id: @user.id).count
     @followed_users = User.find(
                         Relationship.where(followed_id: @user.id).order("created_at DESC").pluck(:user_id)
                       )
   end
+
   def following_user
-    @post_count = @user.books.count
-    @following_count = Relationship.where(user_id: @user.id).count
-    @followed_count = Relationship.where(followed_id: @user.id).count
     @following_users = User.find(
                         @user.relationships.order("created_at DESC").pluck(:followed_id)
                       )
@@ -47,6 +38,12 @@ class UsersController < ApplicationController
   private
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_user_count
+    @post_count = @user.books.count
+    @following_count = Relationship.where(user_id: @user.id).count
+    @followed_count = Relationship.where(followed_id: @user.id).count
   end
 
   def set_search

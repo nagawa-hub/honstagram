@@ -1,0 +1,26 @@
+<div class="user-main clearfix">
+  <% if @user.user_image.blank? %>
+    <img class="user-image" src="/assets/noimage.png">
+  <% else %>
+    <%= image_tag(@user.user_image.to_s, class:"user-image") %>
+  <% end %>
+  <div class="user-info">
+    <p class="user-name">
+      <%= @user.user_name %>
+      <%= link_to edit_user_path(@user.id) do %>
+        <i class="fas fa-cog"></i>
+      <% end %>
+      <%= render "shared/follow_button"%>
+    </p>
+    <ul class="info-list">
+      <li class="item">投稿数：<%= @post_count %>件<li>
+      <%= link_to following_user_user_path(@user.id) do %>
+        <li class="item">フォロー：<%= @following_count %><li>
+      <% end %>
+      <%= link_to followed_user_user_path(@user.id) do %>
+        <li class="item">フォロワー：<%= @followed_count %><li>
+      <% end %>
+    </ul>
+    <p><%= @user.user_comment %></p>
+  </div>
+</div>
