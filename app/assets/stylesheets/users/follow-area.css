@@ -1,0 +1,23 @@
+.follow-area{
+  width: 900px;
+  margin: 30px auto 40px;
+  padding: 20px;
+  border-top: 1px solid black;
+}
+
+.follow-area .follow-user{
+  padding: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+  display: flex;
+  width: 800px;
+}
+
+.follow-user .user-image{
+  width: 100px;
+  height: 100px;
+}
+.follow-user .user-info{
+  margin-left: 40px;
+  width: 640px;
+}

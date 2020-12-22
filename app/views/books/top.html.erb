@@ -5,17 +5,26 @@
     <section class="topic clearfix">
       <img class="topic-image" src="/assets/top_image.jpg">
       <div class="topic-content">
+        <h4>
+          自身の読書体験を表現して<br/>
+          友達とつながろう
+        </h4>
+        <p class="text">自身が読んだ本をシェアしてつながりましょう</p>
+        <p class="text">お気に入りのユーザーを見つけ投稿した本をチェックしよう</p>
       </div>
     </section>
     <section class="articles">
-      <h2>最新の投稿</h2>
+      <div class="article-header">
+        <h3>最新の投稿</h3>
+        <%= button_to "すべてを見る", books_path, { method: :get, class:"toindex-btn"} %>
+      </div>
       <div class="clearfix">
         <% @new_books.map do |new_book| %>
           <%= link_to book_path(new_book.id), class:"article-box" do %>
             <%= image_tag(new_book.book_image, class:"book-image") %>
             <h3 class="title"><%= new_book.title %></h3>
-            <p class="author">著者：<%= new_book.author %></p>
-            <p class="desc">これはサンプルです</p>
+            <p class="author"><%= new_book.author %></p>
+            <p class="date"><%= new_book.created_at.strftime('%Y/%m/%d') %></p>
           <% end %>
         <% end %>
       </div>
@@ -24,13 +33,18 @@
 
   <div class="side-menu">
     <h2 class="ranking-header">Ranking</h2>
+    <p>お気に入り数</p>
     <ol class="ranking-list">
       <% @ranking_books.map do |ranking_book| %>
         <li class="item">
           <%= link_to book_path(ranking_book.id) do %>
-            <%= image_tag(ranking_book.book_image, class:"image") %>
+            <%= image_tag(ranking_book.book_image, class:"book-image") %>
             <span class="order"></span>
-            <p class="text"><%= ranking_book.title %></p>
+            <div class="ranking-text">
+              <p class="title"><%= ranking_book.title %></p>
+              <p class="author"><%= ranking_book.author %></p>
+            </div>
+
           <% end %>
         </li>
       <% end %>

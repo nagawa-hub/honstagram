@@ -29,19 +29,38 @@
   width: 50%;
   height: 100%;
 }
-.topic .content{
+.topic .topic-content{
   float: left;
   width: 50%;
   height: 100%;
-  padding: 105px 25px 0;
+  padding: 80px 25px 0;
 }
 .topic:hover{
   opacity: 0.85;
 }
+.topic .topic-content .text{
+  margin-top: 20px;
+  font-size: 12px;
+}
+.article-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.article-header .toindex-btn{
+  width: 150px;
+  height: 30px;
+  border: none;
+  margin-right: 50px;
+  font-size: 1.0rem;
+  color: #fff;
+  background-color: #FFB000;
+  border-radius: 25px;
+}
 .article-box{
   display: block;
   float: left;
-  height: 360px;
+  
   width: 160px;
   margin: 15px 15px;
   box-shadow: 6px 6px 8px -4px rgba(0, 0, 0, 0.15);
@@ -51,15 +70,28 @@
   height: 200px
 }
 .article-box .title{
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .article-box .author{
-  font-size: 0.8rem;
-}
-.article-box .desc{
+  font-size: 0.9rem;
   overflow: hidden;
-  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.article-box .date{
+  width: 120px;
+  padding: 4px;
+  margin: 0 0 10px auto;
+  background-color: #b5d264 ;
+  color: #2d3d54;
+  text-align: center;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 0.9rem;
 }
 .article-box:hover{
   opacity: 0.85;
@@ -69,6 +101,8 @@
 .side-menu{
   width: 320px;
   float: right;
+  background-color: #F4F5F7;
+  padding: 10px;
 }
 .ranking-list{
   margin-bottom: 30px;
@@ -77,6 +111,7 @@
 }
 .ranking-list .item{
   margin-top: 15px;
+  position: relative;
 }
 .ranking-list .item a{
   display: block;
@@ -85,31 +120,48 @@
 .ranking-list .item a:hover{
   opacity: 0.8;
 }
-.ranking-list .image{
+.ranking-list .book-image{
   height: 100px;
   width: 70px;
 }
-.ranking-list .text{
+.ranking-list .ranking-text{
   display: inline-block;
-  width: 180px;
+  width: 210px;
+  margin-left: 20px;
   color: #000;
   vertical-align: top;
-  font-size: 1.0rem;
   line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+.ranking-text .title{
+  font-size: 1.0rem;
+  margin-bottom: 5px;
+}
+.ranking-text .author{
+  font-size: 0.8rem;
+}
+
 .ranking-list .order{
   display: inline-block;
-  width: 25px;
-  height: 25px;
+  width: 24px;
+  height: 24px;
   margin: 0 10px;
   border: 1px solid #ccc;
   color: #aaa;
+  background-color: #fff;
   text-align: center;
   font-weight: bold;
-  line-height: 23px;
+  line-height: 22px;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  left: 46px;
+  /* ひし形 
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
+  transform: rotate(45deg); */
 }
 .ranking-list .item:nth-of-type(1) 
 .order,
@@ -120,6 +172,7 @@
   border: none;
   color: #fff;
   font-weight: normal;
+  line-height: 24px;
 }
 .ranking-list .item:nth-of-type(1) 
 .order{
@@ -139,9 +192,9 @@
   counter-increment: ranking;
   display: inline-block;
   font-size: 1.0rem;
-  -webkit-transform: rotate(-45deg);
+  /* -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+  transform: rotate(-45deg); */
 }
 
 .footer{

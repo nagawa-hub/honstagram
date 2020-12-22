@@ -17,10 +17,14 @@
       </p>
       <ul class="info-list">
         <li class="item">投稿数：<%= @post_count %>件<li>
-        <li class="item">フォロー：<%= @following_count %><li>
-        <li class="item">フォロワー：<%= @followed_count %><li>
+        <%= link_to following_user_user_path(@user.id) do %>
+          <li class="item">フォロー：<%= @following_count %><li>
+        <% end %>
+        <%= link_to followed_user_user_path(@user.id) do %>
+          <li class="item">フォロワー：<%= @followed_count %><li>
+        <% end %>
       </ul>
-      <p>ユーザーのコメント</p>
+      <p><%= @user.user_comment %></p>
     </div>
   </div>
   <div class="user-article">

@@ -19,7 +19,7 @@
   float: left;
   width: 240px;
 }
-.preview-image{
+.image-area .preview-image{
   width: 100%;
   height: 360px;
 }

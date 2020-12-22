@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root to: "books#top"
   
   resources :users, only: [:show,:edit,:update] do
+    member do
+      get :following_user,:followed_user
+    end
     resources :favorites, only: [:index]
   end
 

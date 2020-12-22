@@ -3,10 +3,10 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show,:edit,:update]
   
   def top
-    @ranking_books = Book.find(
-                      Favorite.group(:book_id).order("count(book_id) DESC").limit(5).pluck(:book_id)
-                    )
     @new_books = Book.includes(:user).order("created_at DESC").first(8)
+    @ranking_books = Book.find(
+                      Favorite.group(:book_id).order("count(book_id) DESC").limit(10).pluck(:book_id)
+                    )
   end
 
   def index

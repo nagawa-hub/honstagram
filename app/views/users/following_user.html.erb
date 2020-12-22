@@ -1,0 +1,52 @@
+<%# CSSはusers/showと同じ %>
+
+<%= render "shared/header"%>
+
+<div class="user-wrapper">
+  <div class="user-main clearfix">
+    <% if @user.user_image.blank? %>
+      <img class="user-image" src="/assets/noimage.png">
+    <% else %>
+      <%= image_tag(@user.user_image.to_s, class:"user-image") %>
+    <% end %>
+    <div class="user-info">
+      <p class="user-name">
+        <%= @user.user_name %>
+        <%= link_to edit_user_path(@user.id) do %>
+          <i class="fas fa-cog"></i>
+        <% end %>
+        <%= render "shared/follow_button"%>
+      </p>
+      <ul class="info-list">
+        <li class="item">投稿数：<%= @post_count %>件<li>
+        <li class="item">フォロー：<%= @following_count %><li>
+        <li class="item">フォロワー：<%= @followed_count %><li>
+      </ul>
+      <p><%= @user.user_comment %></p>
+    </div>
+  </div>
+  <%# -- CSSはshared/follow -- %>
+  <div class="follow-area">
+    <h4>フォロー中のユーザー</h4>
+    <% @following_users.map do |following_user| %>
+      <div class="follow-user">
+        <%= link_to user_path(following_user) do %>
+          <% if following_user.user_image.blank? %>
+            <img class="user-image" src="/assets/noimage.png">
+          <% else %>
+            <%= image_tag(following_user.user_image.to_s, class:"user-image") %>
+          <% end %>
+        <% end %>
+        <div class="user-info">
+          <div class="user-name">
+            <%= following_user.user_name %>
+          </div>
+          <div>
+            <%= following_user.user_comment %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%# -- %>
+</div>

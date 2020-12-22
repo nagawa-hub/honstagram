@@ -38,6 +38,7 @@
 }
 .book-user .user-image{
   width: 100px;
+  height: 100%;
 }
 .book-user .user-info{
   margin-left: 30px;

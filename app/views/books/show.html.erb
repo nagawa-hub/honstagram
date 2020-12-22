@@ -28,13 +28,17 @@
       <h2>Description</h2>
       <p>サンプルでの入力</p>
       <div class="book-user">
-        <%= image_tag(@user.user_image.to_s, class:"user-image") %>
-        <div class="user-info">
-          <%= link_to user_path(@user) do %>
+        <%= link_to user_path(@user) do %>
+          <% if @user.user_image.blank? %>
+            <img class="user-image" src="/assets/noimage.png">
+          <% else %>
+            <%= image_tag(@user.user_image.to_s, class:"user-image") %>
+          <% end %>  
+          <div class="user-info">
             <p class="user-name">投稿者：<%= @user.user_name %></p>
-          <% end %>
-          <%= @user.user_comment %>
-        <div>
+            <%= @user.user_comment %>
+          <div>
+        <% end %>
       </div>
     </section>
   </main>

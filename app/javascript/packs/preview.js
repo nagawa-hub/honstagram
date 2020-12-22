@@ -1,6 +1,6 @@
 const createPreview = () => {
   const previewSpace = document.getElementById("preview-space");
-  document.getElementById("book_image").addEventListener("change",(e) => {
+  document.getElementById("preview_image").addEventListener("change",(e) => {
     // 画像が表示されている場合のみ、すでに存在している画像を削除する
     const imageContent = document.querySelector('img');
     if (imageContent) {

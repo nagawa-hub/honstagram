@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show,:edit,:update]
-  before_action :set_search, only: [:show,:edit]
+  before_action :set_user, only: [:show,:edit,:update,:following_user,:followed_user]
+  before_action :set_search, only: [:show,:edit,:following_user,:followed_user]
   def show
     @user_books = @user.books
     @post_count = @user_books.count
@@ -26,6 +26,23 @@ class UsersController < ApplicationController
     sign_in user
     redirect_to root_path
   end
+
+  def followed_user
+    @post_count = @user.books.count
+    @following_count = Relationship.where(user_id: @user.id).count
+    @followed_count = Relationship.where(followed_id: @user.id).count
+    @followed_users = User.find(
+                        Relationship.where(followed_id: @user.id).order("created_at DESC").pluck(:user_id)
+                      )
+  end
+  def following_user
+    @post_count = @user.books.count
+    @following_count = Relationship.where(user_id: @user.id).count
+    @followed_count = Relationship.where(followed_id: @user.id).count
+    @following_users = User.find(
+                        @user.relationships.order("created_at DESC").pluck(:followed_id)
+                      )
+  end
   
   private
   def set_user
@@ -39,6 +56,6 @@ class UsersController < ApplicationController
   def user_params
     params
       .required(:user)
-      .permit(:name,:user_image,:user_comment)
+      .permit(:user_name,:user_image,:user_comment,:email)
   end 
 end
