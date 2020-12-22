@@ -20,11 +20,7 @@
             <%= tag.tag_name %>
           <% end %>
         </p>
-        <%= render "shared/favorite_button" %>
         <%= render "shared/stars", score: @score_average %>
-        <p>
-          <%= link_to "レビューを見る", book_reviews_path(@book) %>
-        </p>
       </div>
     </section>
     <section class="book-description">
@@ -45,8 +41,27 @@
       </div>
     </section>
   </main>
-  <div class="book-side-menu">
-    <h2>おすすめの投稿</h2>
+  <div class="review-side-menu">
+    <h2>レビュー</h2>
+    <% @reviews.map do |review| %>
+      <div class="review-item">
+        <%= link_to user_path(review.user.id) do %>
+          <% if review.user.user_image.blank? %>
+            <img class="user-image" src="/assets/noimage.png">
+          <% else %>
+            <%= image_tag(review.user.user_image.to_s, class:"user-image") %>
+          <% end %>
+        <% end %>
+        <div class="review-info">
+          <div class="">
+            <%= render "shared/stars", score: review.review_score %>
+          </div>
+          <div>
+            <%= review.review_comment %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   <div>
   <% if user_signed_in? && @user.id != current_user.id %>
     <%= link_to new_book_review_path(@book.id) do%>
@@ -56,4 +71,3 @@
       </div>
     <% end %>
   <% end %>
-</div>

@@ -13,7 +13,7 @@
 
 /* メイン */
 .book-main{
-  width: 760px;
+  width: 660px;
   display: block;
   float: left;
   font-size: 1.2rem;
@@ -29,7 +29,7 @@
 }
 .book-header .book-info{
   float: right;
-  width: 480px;
+  width: 380px;
 }
 .book-user{
   display: flex;
@@ -45,6 +45,6 @@
 }
 /* サイドメニュー */
 .book-side-menu{
-  width: 320px;
+  width: 420px;
   float: right;
 }

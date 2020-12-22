@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     collection do
       get :top,:search
     end
-    resources :reviews, only: [:new,:create]
+    resources :reviews, only: [:index,:new,:create]
     resources :favorites, only: [:create,:destroy]
   end
 

@@ -1,0 +1,19 @@
+.review-side-menu{
+  width: 420px;
+  float: right;
+  padding: 10px;
+}
+.review-item{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.review-item .user-image{
+  width: 100px;
+  height: 100px;
+}
+
+.review-item .review-info{
+  margin-left: 20px;
+  width: 280px;
+}

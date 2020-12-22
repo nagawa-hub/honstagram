@@ -1,12 +1,12 @@
 <% if @book.favorite?(current_user) %>
   <%= form_with model: @book, url: book_favorite_path(@book), method: :delete, local: true do |f| %>
     <%= hidden_field_tag :book_id %>
-    <%= f.submit "お気に入り解除"%>
+    <%= f.submit "お気に入り解除" %>
   <% end %>
 <% else %>
   <%= form_with model: @book, url: book_favorites_path(@book), method: :post, local: true do |f| %>
     <%= hidden_field_tag :book_id %>
-    <%= f.submit "お気に入り登録"%>
+    <%= f.submit "お気に入り登録" %>
   <% end %>
 <% end %>
 
