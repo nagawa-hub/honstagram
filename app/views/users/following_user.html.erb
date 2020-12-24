@@ -3,6 +3,11 @@
 <%= render "shared/header"%>
 
 <div class="user-wrapper">
+
+  <div class="breadcrumb-area">
+    <% breadcrumb :following, @user %>
+    <%= breadcrumbs separator: " &rsaquo; " %>
+  </div>
   
   <%= render "shared/user_info" %>
   

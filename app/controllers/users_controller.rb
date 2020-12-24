@@ -11,8 +11,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    redirect_to action: :show
+    if @user.update(user_params)
+      redirect_to action: :show
+    else
+      set_search
+      render :edit
+    end
   end
 
   def guest

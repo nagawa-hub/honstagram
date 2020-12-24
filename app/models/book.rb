@@ -26,8 +26,6 @@ class Book < ApplicationRecord
     validates :genre_id
   end
 
-  with_options numericality: { other_than: 1 } do
-    validates :genre_id
-  end 
+  
 
 end

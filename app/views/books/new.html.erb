@@ -1,6 +1,12 @@
 <%= render "shared/header"%>
 
 <div class="post-wrapper">
+
+  <div class="breadcrumb-area">
+    <% breadcrumb :book_new, @user %>
+    <%= breadcrumbs separator: " &rsaquo; " %>
+  </div>
+
   <%= form_with model: @book, url: books_path, local: true do |f| %>
     
     <div class="post-top-area clearfix">
@@ -31,7 +37,7 @@
 
         <div class="field">
           <%= f.label :genre_id, "ジャンル" %><span class="must-icon">*</span><br/>
-          <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, class:"input-box") %>
+          <%= f.collection_select(:genre_id, Genre.all, :id, :name, { prompt: "--" }, { class:"input-box" }) %>
         </div>
 
         <div class="field", id='tag-field'>
@@ -42,15 +48,19 @@
     </div>
 
     <div class="post-bottom-area">
-      <div class="field text-area">
-        <%= f.label :description %><span class="must-icon">*</span><br/>
-        <%= f.text_area :description, class:"text-area" %>
-      </div>
-    
-
+      <%= f.label :description %><span class="must-icon">*</span><br/>
+      <%= f.text_area :description, class:"text-area" %>
       <div>
-        <%= f.submit "投稿する" %>
+        <%= f.submit "投稿する", class:"submit-btn" %>
       </div>
     </div>
   <% end %>
+
+  <%= link_to user_path(current_user.id) do%>
+    <div class="post-btn">
+      <i class="fas fa-undo post-btn-icon"></i>
+      <span class="post-btn-text">キャンセル</span>
+    </div>
+  <% end %>
+
 </div>

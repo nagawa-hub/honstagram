@@ -33,6 +33,7 @@ class BooksController < ApplicationController
     @score_average = @book.reviews.average(:review_score)
     tag_id = BookTagRelation.where(book_id: @book.id).pluck(:tag_id)
     @tag = Tag.find(tag_id)
+    @randoms = Book.order("RAND()").limit(10)
   end
 
   def edit

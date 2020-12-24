@@ -1,6 +1,15 @@
 <%= render "shared/header"%>
 
 <div class="user-wrapper">
+
+  <div class="breadcrumb-area">
+    <% if user_signed_in? && @user.id == current_user.id %>
+      <% breadcrumb :current_user, @user %>
+    <% else %>
+      <% breadcrumb :user, @user %>  
+    <% end %>
+    <%= breadcrumbs separator: " &rsaquo; " %>
+  </div>
   
   <%= render "shared/user_info" %>
 

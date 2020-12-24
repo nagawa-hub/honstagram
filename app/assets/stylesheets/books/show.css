@@ -2,8 +2,14 @@
   font-size: 62.5%;
   color: #333;
   
-  width: 1120px;
+  width: 1140px;
   margin: 30px auto 40px;
+  padding: 0 20px;
+}
+
+.book-wrapper .breadcrumb-area{
+  margin: 10px 0 20px 20px;
+  font-size: 1.0rem;
 }
 /* .clearfix::after{
   content: '';

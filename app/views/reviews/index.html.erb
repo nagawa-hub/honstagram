@@ -1,6 +1,12 @@
 <%= render "shared/header"%>
 
 <div class="book-wrapper clearfix">
+
+  <div class="breadcrumb-area">
+    <% breadcrumb :book, @book %>
+    <%= breadcrumbs separator: " &rsaquo; " %>
+  </div>
+
   <main class="book-main">
     <section class="book-header clearfix">
       <%= image_tag(@book.book_image, class:"book-image") %>

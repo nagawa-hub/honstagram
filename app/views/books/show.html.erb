@@ -1,6 +1,12 @@
 <%= render "shared/header"%>
 
 <div class="book-wrapper clearfix">
+
+  <div class="breadcrumb-area">
+    <% breadcrumb :book, @book %>
+    <%= breadcrumbs separator: " &rsaquo; " %>
+  </div>
+
   <main class="book-main">
     <section class="book-header clearfix">
       <%= image_tag(@book.book_image, class:"book-image") %>
@@ -46,7 +52,23 @@
     </section>
   </main>
   <div class="book-side-menu">
+    <%# -- CSSはbooks/topと同じ -- %>
     <h2>おすすめの投稿</h2>
+    <ol class="ranking-list">
+      <% @randoms.map do |random| %>
+        <li class="item">
+          <%= link_to book_path(random.id) do %>
+            <%= image_tag(random.book_image, class:"book-image") %>
+            <div class="ranking-text">
+              <p class="title"><%= random.title %></p>
+              <p class="author"><%= random.author %></p>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ol>
+    <%# -- %>
+  </div>
   <div>
   <% if user_signed_in? && @user.id != current_user.id %>
     <%= link_to new_book_review_path(@book.id) do%>

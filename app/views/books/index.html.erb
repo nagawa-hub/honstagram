@@ -1,6 +1,7 @@
 <%= render "shared/header"%>
 
 <div class="index-wrapper">
+  <h2>全ての投稿</h2>
   <div class="clearfix">
     <% @books.map do |book| %>
       <%= link_to book_path(book.id), class:"article-box" do %>
