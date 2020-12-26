@@ -5,8 +5,8 @@
     <% end %>
   </div>
   <div class="header-search">
-    <%= search_form_for @q, url: search_books_path, class: "search_container" do |f| %>
-      <%= f.text_field :title_cont, placeholder:"本 / 著者で検索する" %>
+    <%= search_form_for @q, url: search_book_books_path, class: "search_container" do |f| %>
+      <%= f.search_field :title_or_author_cont, class:"search-field", placeholder:"本 / 著者で検索する" %>
       <%= f.button type:"submit" do %><i class="fas fa-search"></i><% end %>
     <% end %>
   </div>
@@ -29,10 +29,11 @@
           <% end %>
         </li>
         <li class="header-icon">
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fas fa-ellipsis-h"></i>
-          <% end %>
+          <i class="fas fa-ellipsis-h" id="dots-icon"></i>
         </li>
+      </ul>
+      <ul class="dots-list hidden" id="dots-list">
+        <li class="dots-list-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %><li>
       </ul>
     <% else %>
       <ul class="header-list">

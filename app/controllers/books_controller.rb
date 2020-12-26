@@ -1,16 +1,16 @@
 class BooksController < ApplicationController
-  before_action :set_search, only: [:top,:index,:new,:show,:edit]
+  before_action :set_search, only: [:top,:index,:new,:show,:edit,:search_book]
   before_action :set_book, only: [:show,:edit,:update]
   
   def top
-    @new_books = Book.includes(:user).order("created_at DESC").first(8)
+    @new_books = Book.includes(:user).order("id DESC").first(8)
     @ranking_books = Book.find(
                       Favorite.group(:book_id).order("count(book_id) DESC").limit(10).pluck(:book_id)
                     )
   end
 
   def index
-    @books = Book.includes(:user).order("created_at DESC").page(params[:page]).per(20)
+    @books = Book.includes(:user).order("id DESC").page(params[:page]).per(20)
   end
 
   def new
@@ -48,20 +48,16 @@ class BooksController < ApplicationController
     end
   end
 
-  def search
-    @q = Book.ransack(search_params)
-    @results = @q.result.includes(:user).page(params[:page]).per(10)
+  def search_book
+    if params[:q][:title_or_author_cont] == ""
+      redirect_to action: :index
+    end
+    @results = @q.result.includes(:user).page(params[:page]).per(20)
   end
 
   private
   def set_search
-    @q = Book.ransack(params[:q])
-  end
-
-  def search_params
-    params
-      .require(:q)
-      .permit(:title_cont)
+    @q = Book.ransack(params[:q]) 
   end
 
   def set_book

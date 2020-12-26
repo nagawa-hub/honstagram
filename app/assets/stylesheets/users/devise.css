@@ -2,14 +2,24 @@
   width: 960px;
   margin: 50px auto;
 }
+
+/* ログイン */
 .login-area{
   width: 420px;
   padding: 20px;
   float: left;
+  background-color: #F4F5F7;
 }
-
+.login-area .guest-user{
+  margin-top: 20px;
+}
+.guest-user .here-link{
+  color: #1DA1F2;
+}
+/* 新規登録 */
 .signin-area{
   width: 420px;
   padding: 20px;
   float: right;
+  background-color: #F4F5F7;
 }

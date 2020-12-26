@@ -1,4 +1,6 @@
 <div class="devise-wrapper">
+  <h2>Honstaglam</h2>
+  
   <section class="login-area">
     <h2>ログイン</h2>
 
@@ -27,8 +29,8 @@
 
     <%= render "devise/shared/links" %>
 
-    <p>アカウント登録をせずに試したい方は
-      <%= link_to "こちら", users_guest_sign_in_path, method: :post %>
+    <p class="guest-user">アカウント登録をせずに試したい方は
+      <%= link_to "こちら", users_guest_sign_in_path, method: :post, class:"here-link" %>
     </p>
   </section>
 
@@ -67,4 +69,3 @@
     <% end %>
   </section>
 </div>
-

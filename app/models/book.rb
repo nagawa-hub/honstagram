@@ -26,6 +26,4 @@ class Book < ApplicationRecord
     validates :genre_id
   end
 
-  
-
 end

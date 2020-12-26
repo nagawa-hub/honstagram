@@ -14,6 +14,7 @@ class FavoritesController < ApplicationController
     @favorite = current_user.favorites.build(book_id: params[:book_id])
     if @favorite.valid?
       @favorite.save
+      redirect_to book_path(@favorite.book_id)
     end
   end
 
@@ -21,6 +22,7 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.find_by(book_id: params[:book_id])
     if favorite.valid?
       favorite.destroy
+      redirect_to book_path(favorite.book_id)
     end
   end
 

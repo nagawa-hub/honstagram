@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   
   resources :books, only: [:index,:new,:create,:show,:edit,:update] do
     collection do
-      get :top,:search
+      get :top,:search_book
     end
     resources :reviews, only: [:index,:new,:create]
     resources :favorites, only: [:create,:destroy]

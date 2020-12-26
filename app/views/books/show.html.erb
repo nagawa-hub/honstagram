@@ -13,8 +13,10 @@
       <div class="book-info">
         <p>
           <%= @book.title %>
-          <%= link_to edit_book_path(@book.id) do %>
-            <i class="fas fa-cog"></i>          
+          <% if user_signed_in? && current_user.id == @book.user_id %>
+            <%= link_to edit_book_path(@book.id) do %>
+              <i class="fas fa-cog"></i>          
+            <% end %>
           <% end %>
         </p>
         <p>著者：<%= @book.author %></p>
@@ -26,7 +28,9 @@
             <%= tag.tag_name %>
           <% end %>
         </p>
-        <%= render "shared/favorite_button" %>
+        <% if user_signed_in? %>
+          <%= render "shared/favorite_button" %>
+        <% end %>
         <%= render "shared/stars", score: @score_average %>
         <p>
           <%= link_to "レビューを見る", book_reviews_path(@book) %>
@@ -34,8 +38,8 @@
       </div>
     </section>
     <section class="book-description">
-      <h2>Description</h2>
-      <p>サンプルでの入力</p>
+      <h3>投稿者コメント</h3>
+      <p><%= @book.description %></p>
       <div class="book-user">
         <%= link_to user_path(@user) do %>
           <% if @user.user_image.blank? %>

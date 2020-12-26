@@ -2,9 +2,9 @@
 
 <div class="index-wrapper">
   <div class="clearfix">
-    <h2>全ての投稿</h2>
-
-    <% @books.map do |book| %>
+    <h2><%= "「#{params[:q][:title_or_author_cont]}」の検索結果" %></h2>
+    
+    <% @results.map do |book| %>
       <%= link_to book_path(book.id), class:"article-box" do %>
         <%= image_tag(book.book_image, class:"book-image") %>
         <h3 class="title"><%= book.title %></h3>
@@ -14,5 +14,3 @@
     <% end %>
   </div>
 </div>
-
-

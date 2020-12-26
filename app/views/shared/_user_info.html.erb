@@ -7,10 +7,14 @@
   <div class="user-info">
     <p class="user-name">
       <%= @user.user_name %>
-      <%= link_to edit_user_path(@user.id) do %>
-        <i class="fas fa-cog"></i>
+      <% if user_signed_in? && current_user.id == @user.id %>
+        <%= link_to edit_user_path(@user.id) do %>
+          <i class="fas fa-cog"></i>
+        <% end %>
       <% end %>
-      <%= render "shared/follow_button"%>
+      <% if user_signed_in? && current_user.id != @user.id %>
+        <%= render "shared/follow_button" %>
+      <% end %>
     </p>
     <ul class="info-list">
       <li class="item">投稿数：<%= @post_count %>件<li>

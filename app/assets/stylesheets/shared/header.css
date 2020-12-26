@@ -23,24 +23,25 @@
   align-items: center;
   justify-content: center;
 }
+
 .search_container{
   display: flex;
   box-sizing: border-box;
   position: relative;
   border: 1px solid #999;
   display: block;
-  padding: 3px 15px;
+  padding: 3px 10px;
   height: 2.3em;
   width: 260px;
   overflow: hidden;
   background-color: #FFF;
 }
-.search_container input[type="text"]{
+.search_container .search-field{
   border: none;
-  height: 2.0em;
-}
-.search_container input[type="text"]:focus {
-  outline: 0;
+  width: 200px;
+  height: 100%;
+  padding-left: 5px;
+  outline: none;
 }
 .search_container button[type="submit"]{
   cursor: pointer;
@@ -59,6 +60,7 @@
 /* ヘッダーアイコン */
 .header-right{
   width: 300px;
+  position: relative;
 }
 .header-list{
   height: 100%;
@@ -71,4 +73,18 @@
 .header-icon{
   font-size: 2em;
   color: black;
+}
+.header-icon :hover{
+  cursor: pointer;
+}
+.header-right .dots-list{
+  position: absolute;
+  right: 15px;
+  top: 70px;
+}
+.dots-list .dots-list-item{
+  border-bottom: 1px solid black;
+}
+.hidden{
+  display: none;
 }
