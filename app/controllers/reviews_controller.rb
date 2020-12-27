@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
     if @review.valid?
       redirect_to book_path(@book)
     else
+      set_search
       render :new
     end
   end

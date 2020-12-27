@@ -13,8 +13,10 @@
       <div class="book-info">
         <p>
           <%= @book.title %>
-          <%= link_to edit_book_path(@book.id) do %>
-            <i class="fas fa-cog"></i>          
+          <% if user_signed_in? && current_user.id == @book.user_id %>
+            <%= link_to edit_book_path(@book.id) do %>
+              <i class="fas fa-cog"></i>          
+            <% end %>
           <% end %>
         </p>
         <p>著者：<%= @book.author %></p>
@@ -31,7 +33,7 @@
     </section>
     <section class="book-description">
       <h2>Description</h2>
-      <p>サンプルでの入力</p>
+      <p><%= @book.description %></p>
       <div class="book-user">
         <%= link_to user_path(@user) do %>
           <% if @user.user_image.blank? %>
@@ -62,6 +64,7 @@
           <div class="">
             <%= render "shared/stars", score: review.review_score %>
           </div>
+          <p><%= review.user.user_name %></p>
           <div>
             <%= review.review_comment %>
           </div>

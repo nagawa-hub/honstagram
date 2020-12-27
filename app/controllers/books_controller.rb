@@ -11,6 +11,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.includes(:user).order("id DESC").page(params[:page]).per(20)
+    @books_count = @books.count
   end
 
   def new
@@ -53,6 +54,7 @@ class BooksController < ApplicationController
       redirect_to action: :index
     end
     @results = @q.result.includes(:user).page(params[:page]).per(20)
+    @results_count = @results.count
   end
 
   private

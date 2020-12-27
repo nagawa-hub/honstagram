@@ -38,10 +38,6 @@
           <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, class:"input-box") %>
         </div>
 
-        <div class="field", id='tag-field'>
-          <%= f.label :tag_name, "#タグ" %><br/>
-          <%= f.text_field :tag_name, class:"input-box"%>
-        </div>
       </div>
     </div>
 
