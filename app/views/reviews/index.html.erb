@@ -10,29 +10,31 @@
   <main class="book-main">
     <section class="book-header clearfix">
       <%= image_tag(@book.book_image, class:"book-image") %>
-      <div class="book-info">
-        <p>
+      <ul class="book-info">
+        <li class="item">
           <%= @book.title %>
           <% if user_signed_in? && current_user.id == @book.user_id %>
             <%= link_to edit_book_path(@book.id) do %>
               <i class="fas fa-cog"></i>          
             <% end %>
           <% end %>
-        </p>
-        <p>著者：<%= @book.author %></p>
-        <p>出版社：<%= @book.publisher %></p>
-        <p>投稿日：2020/12/13</p>
-        <p>ジャンル：文芸・小説</p>
-        <p>#タグ：
+        </li>
+        <li class="item">著者：<%= @book.author %></li>
+        <li class="item">出版社：<%= @book.publisher %></li>
+        <li class="item">投稿日：2020/12/13</li>
+        <li class="item">ジャンル：文芸・小説</li>
+        <li class="item">#タグ：
           <% @tag.map do |tag| %>
             <%= tag.tag_name %>
           <% end %>
-        </p>
-        <%= render "shared/stars", score: @score_average %>
-      </div>
+        </li>
+        <li class="item score-box">
+          <%= render "shared/stars", score: @score_average %>
+        </li>
+      </ul>
     </section>
     <section class="book-description">
-      <h2>Description</h2>
+      <h2>投稿者のコメント</h2>
       <p><%= @book.description %></p>
       <div class="book-user">
         <%= link_to user_path(@user) do %>

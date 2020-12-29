@@ -104,6 +104,13 @@
   background-color: #F4F5F7;
   padding: 10px;
 }
+.side-menu .ranking-header{
+  margin: 0 auto;
+  text-align: center;
+  width: 160px;
+  line-height: 0.9;
+  border-bottom: 1px solid #FF4F50;
+}
 .ranking-list{
   margin-bottom: 30px;
   list-style: none;
@@ -112,6 +119,7 @@
 .ranking-list .item{
   margin-top: 15px;
   position: relative;
+  border-bottom: 1px solid #ccc;
 }
 .ranking-list .item a{
   display: block;
@@ -195,8 +203,4 @@
   /* -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg); */
-}
-
-.footer{
-  width: 100%;
 }

@@ -5,19 +5,21 @@
     <%= image_tag(@user.user_image.to_s, class:"user-image") %>
   <% end %>
   <div class="user-info">
-    <p class="user-name">
-      <%= @user.user_name %>
+    <ul class="user-name">
+      <li><%= @user.user_name %></li>
       <% if user_signed_in? && current_user.id == @user.id %>
-        <%= link_to edit_user_path(@user.id) do %>
-          <i class="fas fa-cog"></i>
-        <% end %>
+        <li class="edit-btn">
+          <%= link_to edit_user_path(@user.id) do %>
+            <i class="fas fa-cog"></i>
+          <% end %>
+        </li>
       <% end %>
       <% if user_signed_in? && current_user.id != @user.id %>
-        <%= render "shared/follow_button" %>
+        <li><%= render "shared/follow_button" %><li>
       <% end %>
-    </p>
+    </ul>
     <ul class="info-list">
-      <li class="item">投稿数：<%= @post_count %>件<li>
+      <li>投稿数：<%= @post_count %>件<li>
       <%= link_to following_user_user_path(@user.id) do %>
         <li class="item">フォロー：<%= @following_count %><li>
       <% end %>

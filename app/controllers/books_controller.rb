@@ -11,7 +11,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.includes(:user).order("id DESC").page(params[:page]).per(20)
-    @books_count = @books.count
+    @books_count = Book.all.count
   end
 
   def new

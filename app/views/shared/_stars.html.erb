@@ -1,5 +1,4 @@
-<p class="score-box">
-  <% if score == nil %>
+<% if score == nil %>
     <span class="star_rating" data-rate="0"></span>
     <span class="none-text">評価はありません<span>
   <% elsif score < 1.5 %>
@@ -29,5 +28,4 @@
   <% elsif score == 5 %>
     <span class="star_rating" data-rate="5"></span>
     <%= score %>
-  <% end %>
-</p>
+<% end %>

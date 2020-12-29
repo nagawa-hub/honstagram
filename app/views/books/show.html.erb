@@ -10,32 +10,34 @@
   <main class="book-main">
     <section class="book-header clearfix">
       <%= image_tag(@book.book_image, class:"book-image") %>
-      <div class="book-info">
-        <p>
+      <ul class="book-info">
+        <li class="item">
           <%= @book.title %>
           <% if user_signed_in? && current_user.id == @book.user_id %>
             <%= link_to edit_book_path(@book.id) do %>
               <i class="fas fa-cog"></i>          
             <% end %>
           <% end %>
-        </p>
-        <p>著者：<%= @book.author %></p>
-        <p>出版社：<%= @book.publisher %></p>
-        <p>投稿日：2020/12/13</p>
-        <p>ジャンル：文芸・小説</p>
-        <p>#タグ：
+        </li>
+        <li class="item">著者：<%= @book.author %></li>
+        <li class="item">出版社：<%= @book.publisher %></li>
+        <li class="item">投稿日：2020/12/13</li>
+        <li class="item">ジャンル：文芸・小説</li>
+        <li class="item">#タグ：
           <% @tag.map do |tag| %>
             <%= tag.tag_name %>
           <% end %>
-        </p>
+        </li>
         <% if user_signed_in? %>
-          <%= render "shared/favorite_button" %>
+          <li class="item"><%= render "shared/favorite_button" %><li>
         <% end %>
-        <%= render "shared/stars", score: @score_average %>
-        <p>
+        <li class="item score-box">
+          <%= render "shared/stars", score: @score_average %>
+        </li>
+        <li class="item">
           <%= link_to "レビューを見る", book_reviews_path(@book) %>
-        </p>
-      </div>
+        </li>
+      </ul>
     </section>
     <section class="book-description">
       <h3>投稿者コメント</h3>
@@ -56,22 +58,20 @@
     </section>
   </main>
   <div class="book-side-menu">
-    <%# -- CSSはbooks/topと同じ -- %>
-    <h2>おすすめの投稿</h2>
-    <ol class="ranking-list">
+    <h3 class="recommend-header">おすすめの投稿</h3>
+    <ul class="recommend-list">
       <% @randoms.map do |random| %>
         <li class="item">
           <%= link_to book_path(random.id) do %>
             <%= image_tag(random.book_image, class:"book-image") %>
-            <div class="ranking-text">
+            <div class="recommend-text">
               <p class="title"><%= random.title %></p>
               <p class="author"><%= random.author %></p>
             </div>
           <% end %>
         </li>
       <% end %>
-    </ol>
-    <%# -- %>
+    </ul>
   </div>
   <div>
   <% if user_signed_in? && @user.id != current_user.id %>

@@ -2,6 +2,11 @@
   width: 1150px;
   margin: 30px auto 40px;
 }
+.index-wrapper .index-header{
+  border-bottom: 2px solid #FFB000;
+  width: 280px;
+  text-align: center;
+}
 
 .index-wrapper .article-box{
   width: 200px;

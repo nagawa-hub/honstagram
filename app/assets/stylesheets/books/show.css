@@ -25,7 +25,7 @@
   font-size: 1.2rem;
 }
 .book-header{
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 .book-header .book-image{
   float: left;
@@ -37,14 +37,45 @@
   float: right;
   width: 380px;
 }
-.book-user{
+.book-info .item{
+  margin-bottom: 15px;
+}
+.favorite-form{
+  width: 125px;
+  height: 30px;
+}
+.favorite-form:hover{
+  border-bottom: 1px solid black;
+}
+.favorite-form .favorite-icon{
+  color: #ff7373;
+  height: 29px;
+}
+.favorite-form .favorite-btn{
+  border: none;
+  height: 29px;
+  color:#ff7373;
+  background-color: #fff;
+}
+.favorite-form .unfavorite-btn{
+  border: none;
+  height: 29px;
+  color: #ff7373;
+  background-color: #fff;
+}
+.book-description{
+  padding: 10px;
+}
+
+.book-description .book-user{
   display: flex;
-  height: 100px;
   font-size: 1.0rem;
+  border: 1px solid #ccc;
+  padding: 10px;
 }
 .book-user .user-image{
   width: 100px;
-  height: 100%;
+  height: 100px;
 }
 .book-user .user-info{
   margin-left: 30px;
@@ -53,4 +84,53 @@
 .book-side-menu{
   width: 420px;
   float: right;
+  background-color: #F4F5F7;
+  padding: 10px;
 }
+.book-side-menu .recommend-header{
+  width: 210px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 0.9;
+  border-bottom: 1px solid #FF4F50;
+}
+.book-side-menu .recommend-list{
+  margin-bottom: 30px;
+  list-style: none;
+  counter-reset: ranking;
+}
+.recommend-list .item{
+  margin-top: 15px;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+}
+.recommend-list .item a{
+  display: block;
+  font-size: 0;
+}
+.recommend-list .item a:hover{
+  opacity: 0.8;
+}
+.recommend-list .book-image{
+  height: 100px;
+  width: 70px;
+}
+.recommend-list .recommend-text{
+  display: inline-block;
+  width: 310px;
+  margin-left: 20px;
+  color: #000;
+  vertical-align: top;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.recommend-text .title{
+  font-size: 1.0rem;
+  margin-bottom: 5px;
+}
+.recommend-text .author{
+  font-size: 0.8rem;
+}
+

@@ -30,11 +30,40 @@
   width: 600px;
 }
 
-.user-info .info-list{
+.user-info .user-name{
   display: flex;
 }
+.user-name .edit-btn{
+  margin-left: 30px;
+}
+.follow-form .following-btn{
+  margin-left: 30px;
+  color: #fff;
+  background-color: #1DA1F2;
+  width: 120px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+}
+.follow-form .followed-btn{
+  margin-left: 30px;
+  color: #1DA1F2;
+  background-color: #fff;
+  width: 120px;
+  font-weight: bold;
+  border: 1px solid #1DA1F2;
+  border-radius: 25px;
+}
+
+.user-info .info-list{
+  display: flex;
+  height: 20px;
+}
 .info-list .item{
-  margin-right: 15px;
+  margin-left: 15px;
+}
+.info-list .item:hover{
+  border-bottom: 1px solid black;
 }
 
 .user-article{
