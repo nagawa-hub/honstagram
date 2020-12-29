@@ -35,6 +35,7 @@ class BooksController < ApplicationController
     tag_id = BookTagRelation.where(book_id: @book.id).pluck(:tag_id)
     @tag = Tag.find(tag_id)
     @randoms = Book.order("RAND()").limit(10)
+    @review = Review.new
   end
 
   def edit

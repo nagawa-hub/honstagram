@@ -63,8 +63,17 @@
   color: #ff7373;
   background-color: #fff;
 }
+.book-info .review-link{
+  width: 140px;
+  border-bottom: 1px solid #ccc;
+  line-height: 0.9;
+}
+
 .book-description{
   padding: 10px;
+}
+.book-description .description-header{
+  border-bottom: 1px solid #ccc;
 }
 
 .book-description .book-user{
@@ -89,7 +98,7 @@
 }
 .book-side-menu .recommend-header{
   width: 210px;
-  margin: 0 auto;
+  margin: 0 auto 15px;
   text-align: center;
   line-height: 0.9;
   border-bottom: 1px solid #FF4F50;

@@ -31,10 +31,11 @@
         <li class="item score-box">
           <%= render "shared/stars", score: @score_average %>
         </li>
+        <li class="item back-link"><%= link_to "もどる", book_path(@book) %></li>
       </ul>
     </section>
     <section class="book-description">
-      <h2>投稿者のコメント</h2>
+      <h3 class="description-header">投稿者のコメント</h3>
       <p><%= @book.description %></p>
       <div class="book-user">
         <%= link_to user_path(@user) do %>
@@ -52,7 +53,7 @@
     </section>
   </main>
   <div class="review-side-menu">
-    <h2>レビュー</h2>
+    <h3 class="review-header">レビュー</h3>
     <% @reviews.map do |review| %>
       <div class="review-item">
         <%= link_to user_path(review.user.id) do %>
@@ -73,12 +74,24 @@
         </div>
       </div>
     <% end %>
-  <div>
+  </div>
   <% if user_signed_in? && @user.id != current_user.id %>
-    <%= link_to new_book_review_path(@book.id) do%>
-      <div class="post-btn">
-        <i class="fas fa-pencil-alt post-btn-icon"></i>
-        <span class="post-btn-text">レビューをする</span>
+    <div class="post-btn" id="review-post-btn">
+      <i class="fas fa-pencil-alt post-btn-icon"></i>
+      <span class="post-btn-text">レビューをする</span>
+    </div>
+  <% end %>
+
+  <div class="review-post-area hidden" id="review-post-area">
+    <%= form_with model: [@book, @review], local: true do |f| %>
+
+      <div class="review-field">
+        <%= f.text_field :review_comment, class:"text-area", placeholder:"レビューを記入" %>
+      </div>
+
+      <div class="field">
+        <%= f.text_field :review_score, placeholder:"スコア：1〜5" %>
+        <%= f.submit "投稿する" %>
       </div>
     <% end %>
-  <% end %>
+  </div>

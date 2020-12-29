@@ -17,7 +17,7 @@
         <%= link_to book_path(favorite_book.id), class:"article-box" do %>
           <%= image_tag(favorite_book.book_image, class:"book-image") %>
           <h3 class="title"><%= favorite_book.title %></h3>
-          <p class="author">著者：<%= favorite_book.author %></p>
+          <p class="author"><%= favorite_book.author %></p>
         <% end %>
       <% end %>
     </div>

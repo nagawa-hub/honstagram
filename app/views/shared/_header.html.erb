@@ -20,12 +20,12 @@
         </li>
         <li class="header-icon">
           <%= link_to books_path do %>
-            <i class="far fa-compass"></i>
+            <span class="compass"><i class="far fa-compass"></i></span>
           <% end %>
         </li>
         <li class="header-icon">
           <%= link_to user_favorites_path(current_user.id) do %>
-            <i class="far fa-heart"></i>
+            <span class="heart"><i class="far fa-heart"></i></span>
           <% end %>
         </li>
         <li class="header-icon">
@@ -33,6 +33,8 @@
         </li>
       </ul>
       <ul class="dots-list hidden" id="dots-list">
+        <li class="dots-list-item"><%= link_to "マイページ", user_path(current_user.id) %></li>
+        <li class="dots-list-item"><%= link_to "お気に入り一覧", user_favorites_path(current_user.id) %></li>
         <li class="dots-list-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %><li>
       </ul>
     <% else %>

@@ -10,7 +10,7 @@
   color:#1DA1F2;
 }
 .horizonal-list .horizonal-item a{
-  
+  border-bottom: 1px solid #ccc;
 }
 .copyright{
   text-align: center;

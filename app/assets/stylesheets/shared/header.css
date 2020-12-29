@@ -74,6 +74,12 @@
   font-size: 2em;
   color: black;
 }
+.header-icon .compass:hover{
+  color: #1DA1F2;
+}
+.header-icon .heart:hover{
+  color: #FF4F50;
+}
 .header-icon :hover{
   cursor: pointer;
 }
@@ -81,9 +87,15 @@
   position: absolute;
   right: 15px;
   top: 70px;
+  border: 1px solid #ccc;
+  padding: 5px;
 }
 .dots-list .dots-list-item{
   border-bottom: 1px solid black;
+  margin-bottom: 5px;
+}
+.dots-list .dots-list-item:hover{
+  background-color: #F4F5F7;
 }
 .hidden{
   display: none;
