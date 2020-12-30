@@ -26,13 +26,13 @@
 }
 .topic .topic-image{
   float: left;
-  width: 50%;
-  height: 100%;
+  width: 380px;
+  height: 300px;
 }
 .topic .topic-content{
   float: left;
-  width: 50%;
-  height: 100%;
+  width: 380px;
+  height: 300px;
   padding: 80px 25px 0;
 }
 .topic:hover{
