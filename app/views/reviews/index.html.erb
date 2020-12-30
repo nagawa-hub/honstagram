@@ -40,7 +40,7 @@
       <div class="book-user">
         <%= link_to user_path(@user) do %>
           <% if @user.user_image.blank? %>
-            <img class="user-image" src="/assets/noimage.png">
+            <%= image_tag asset_path("noimage.png"), class:"user-image" %>
           <% else %>
             <%= image_tag(@user.user_image.to_s, class:"user-image") %>
           <% end %>  

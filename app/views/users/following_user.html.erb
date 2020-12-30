@@ -18,7 +18,7 @@
       <div class="follow-user">
         <%= link_to user_path(following_user) do %>
           <% if following_user.user_image.blank? %>
-            <img class="user-image" src="/assets/noimage.png">
+            <%= image_tag asset_path("noimage.png"), class:"user-image" %>
           <% else %>
             <%= image_tag(following_user.user_image.to_s, class:"user-image") %>
           <% end %>
