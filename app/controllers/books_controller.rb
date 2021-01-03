@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only: [:new,:create,:edit,:update]
   before_action :set_search, only: [:top,:index,:new,:show,:edit,:search_book]
   before_action :set_book, only: [:show,:edit,:update]
   
@@ -39,6 +40,9 @@ class BooksController < ApplicationController
   end
 
   def edit
+    unless current_user.id == @book.id
+      redirect_to action: :show
+    end
   end
 
   def update

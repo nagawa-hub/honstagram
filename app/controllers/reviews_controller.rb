@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only:[:create]
   before_action :set_search, only: [:index]
   before_action :set_book, only: [:index,:create]
+  
   def index
     @user = @book.user
     @score_average = @book.reviews.average(:review_score)

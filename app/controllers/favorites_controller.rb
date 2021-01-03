@@ -1,8 +1,12 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_user, only: [:index]
   before_action :set_search, only: [:index]
   
   def index
-    @user = User.find(params[:user_id])
+    unless current_user.id == @user.id
+      redirect_to user_path(@user)
+    end
     @post_count = @user.books.count
     @following_count = Relationship.where(user_id: @user.id).count
     @followed_count = Relationship.where(followed_id: @user.id).count
@@ -27,6 +31,10 @@ class FavoritesController < ApplicationController
   end
 
   private
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
   def set_search
     @q = Book.ransack(params[:q])
   end
