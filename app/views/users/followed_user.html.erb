@@ -13,7 +13,7 @@
 
   <%# -- CSSはshared/follow -- %>
   <div class="follow-area">
-    <h4>フォローされているユーザー</h4>
+    <h4 class="follow-header">フォローされているユーザー</h4>
     <% @followed_users.map do |followed_user| %>
       <div class="follow-user">
         <%= link_to user_path(followed_user) do %>

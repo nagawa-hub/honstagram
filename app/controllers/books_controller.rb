@@ -10,7 +10,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.includes(:user).order("id DESC").page(params[:page]).per(20)
+    @books = Book.includes(:user).order("id DESC").page(params[:page]).per(10)
     @books_count = Book.all.count
   end
 
@@ -34,7 +34,7 @@ class BooksController < ApplicationController
     @score_average = @book.reviews.average(:review_score)
     tag_id = BookTagRelation.where(book_id: @book.id).pluck(:tag_id)
     @tag = Tag.find(tag_id)
-    @randoms = Book.order("RAND()").limit(10)
+    @randoms = Book.order("RAND()").limit(8)
     @review = Review.new
   end
 
@@ -54,7 +54,7 @@ class BooksController < ApplicationController
     if params[:q][:title_or_author_cont] == ""
       redirect_to action: :index
     end
-    @results = @q.result.includes(:user).page(params[:page]).per(20)
+    @results = @q.result.includes(:user).page(params[:page]).per(10)
     @results_count = @results.count
   end
 
