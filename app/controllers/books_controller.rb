@@ -40,7 +40,7 @@ class BooksController < ApplicationController
   end
 
   def edit
-    unless current_user.id == @book.id
+    unless current_user.id == @book.user_id
       redirect_to action: :show
     end
   end
