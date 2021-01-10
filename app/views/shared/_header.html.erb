@@ -6,9 +6,10 @@
   </div>
   <div class="header-search">
     <%= search_form_for @q, url: search_book_books_path, class: "search_container" do |f| %>
-      <%= f.search_field :title_or_author_cont, class:"search-field", placeholder:"本 / 著者で検索する" %>
+      <%= f.search_field :title_or_author_cont, class:"search-field", id:"search-field", placeholder:"本 / 著者で検索する" %>
       <%= f.button type:"submit" do %><i class="fas fa-search"></i><% end %>
     <% end %>
+    
   </div>
   <div class="header-right">
     <% if user_signed_in? %>

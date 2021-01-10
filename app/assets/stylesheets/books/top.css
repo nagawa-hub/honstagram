@@ -150,6 +150,9 @@
 .ranking-text .author{
   font-size: 0.8rem;
 }
+.ranking-text .stars{
+  font-size: 0.8rem;
+}
 
 .ranking-list .order{
   display: inline-block;

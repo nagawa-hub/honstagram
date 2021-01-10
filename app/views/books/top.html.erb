@@ -43,8 +43,8 @@
             <div class="ranking-text">
               <p class="title"><%= ranking_book.title %></p>
               <p class="author"><%= ranking_book.author %></p>
+              <p class="stars"><%= render "shared/stars", score: ranking_book.reviews.average(:review_score) %></p>
             </div>
-
           <% end %>
         </li>
       <% end %>
