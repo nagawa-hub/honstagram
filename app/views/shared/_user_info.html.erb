@@ -27,6 +27,6 @@
         <li class="item">フォロワー：<%= @followed_count %><li>
       <% end %>
     </ul>
-    <p><%= @user.user_comment %></p>
+    <p><%= safe_join(@user.user_comment.split("\n"), tag(:br)) %></p>
   </div>
 </div>

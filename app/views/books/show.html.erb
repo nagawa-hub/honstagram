@@ -41,7 +41,7 @@
     </section>
     <section class="book-description">
       <h3 class="description-header">投稿者コメント</h3>
-      <p><%= @book.description %></p>
+      <p><%= safe_join(@book.description.split("\n"), tag(:br)) %></p>
       <div class="book-user">
         <%= link_to user_path(@user) do %>
           <% if @user.user_image.blank? %>
@@ -51,7 +51,7 @@
           <% end %>  
           <div class="user-info">
             <p class="user-name">投稿者：<%= @user.user_name %></p>
-            <%= @user.user_comment %>
+            <%= safe_join(@user.user_comment.split("\n"), tag(:br)) %>
           <div>
         <% end %>
       </div>
@@ -67,6 +67,7 @@
             <div class="recommend-text">
               <p class="title"><%= random.title %></p>
               <p class="author"><%= random.author %></p>
+              <p class="stars"><%= render "shared/stars", score: random.reviews.average(:review_score) %></p>
             </div>
           <% end %>
         </li>

@@ -5,11 +5,11 @@
   border-top: 1px solid black;
 }
 .follow-area .follow-header{
-  width: 300px;
+  width: 400px;
   font-size: 1.4rem;
-  text-align: center;
+  padding-left: 40px;
   line-height: 0.9;
-  border-bottom: 1px solid #1DA1F2;
+  border-left: 10px solid #1DA1F2;
 }
 
 .follow-area .follow-user{

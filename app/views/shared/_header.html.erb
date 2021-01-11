@@ -35,7 +35,7 @@
       </ul>
       <ul class="dots-list hidden" id="dots-list">
         <li class="dots-list-item"><%= link_to "マイページ", user_path(current_user.id) %></li>
-        <li class="dots-list-item"><%= link_to "お気に入り一覧", user_favorites_path(current_user.id) %></li>
+        <li class="dots-list-item"><%= link_to "投稿する", new_book_path %></li>
         <li class="dots-list-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %><li>
       </ul>
     <% else %>
