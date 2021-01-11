@@ -41,7 +41,7 @@
     </section>
     <section class="book-description">
       <h3 class="description-header">投稿者コメント</h3>
-      <p><%= safe_join(@book.description.split("\n"), tag(:br)) %></p>
+      <p><%= @book.description %></p>
       <div class="book-user">
         <%= link_to user_path(@user) do %>
           <% if @user.user_image.blank? %>
@@ -51,7 +51,7 @@
           <% end %>  
           <div class="user-info">
             <p class="user-name">投稿者：<%= @user.user_name %></p>
-            <%= safe_join(@user.user_comment.split("\n"), tag(:br)) %>
+            <%= @user.user_comment %>
           <div>
         <% end %>
       </div>
