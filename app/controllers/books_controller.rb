@@ -64,7 +64,7 @@ class BooksController < ApplicationController
       redirect_to action: :index
     end
     @results = @q.result.includes(:user).order("id DESC").page(params[:page]).per(10)
-    @results_count = @results.count
+    @results_count = @q.result.count
   end
 
   private
