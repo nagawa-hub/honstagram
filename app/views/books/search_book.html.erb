@@ -2,8 +2,12 @@
 
 <div class="index-wrapper">
   <div class="clearfix">
-    <h2><%= "「#{params[:q][:title_or_author_cont]}」の検索結果 #{@results_count}件" %></h2>
-    
+    <% if @search.present? %>
+      <h2><%= "「#{@search}」の検索結果 #{@results_count}件" %></h2>
+    <% elsif @genre_id.present? %>
+      <h2><%= "#{render "shared/genre", genre_id: @genre_id}の検索結果 #{@results_count}件" %></h2>
+    <% end %>
+
     <% @results.map do |book| %>
       <%= link_to book_path(book.id), class:"article-box" do %>
         <%= image_tag(book.book_image, class:"book-image") %>

@@ -96,7 +96,20 @@
 .article-box:hover{
   opacity: 0.85;
 }
-
+.genre-area{
+  margin-top: 20px;
+}
+.genre-area .genre-list{
+}
+.genre-list .item{
+  float: left;
+  padding: 0 15px;
+  font-size: 1.0rem;
+  margin-bottom: 8px;
+}
+.genre-list .item + .item{
+  border-left: 1px solid #bbb;
+}
 /* サイドメニュー */
 .side-menu{
   width: 320px;

@@ -29,6 +29,18 @@
         <% end %>
       </div>
     </section>
+    <section class="genre-area">
+      <h3>ジャンル</h3>
+      <ul class="genre-list">
+        <% @genres.map do |genre| %>
+          <li class="item">
+            <%= link_to search_book_books_path(@q, 'q[genre_id_eq]': genre.genre_id ) do %>
+              <%= render "shared/genre", genre_id: genre.genre_id %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
   </main>
 
   <div class="side-menu">

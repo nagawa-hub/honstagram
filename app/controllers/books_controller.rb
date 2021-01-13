@@ -8,6 +8,7 @@ class BooksController < ApplicationController
     @ranking_books = Book.find(
                       Favorite.group(:book_id).order("count(book_id) DESC").limit(10).pluck(:book_id)
                     )
+    @genres = Book.group(:genre_id).order("genre_id ASC")
   end
 
   def index
@@ -55,7 +56,11 @@ class BooksController < ApplicationController
   end
 
   def search_book
-    if params[:q][:title_or_author_cont] == ""
+    if params[:q][:title_or_author_cont].present?
+      @search = params[:q][:title_or_author_cont]
+    elsif params[:q][:genre_id_eq].present?
+      @genre_id = params[:q][:genre_id_eq].to_i
+    else
       redirect_to action: :index
     end
     @results = @q.result.includes(:user).page(params[:page]).per(10)

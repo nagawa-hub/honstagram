@@ -21,8 +21,8 @@
         </li>
         <li class="item">著者：<%= @book.author %></li>
         <li class="item">出版社：<%= @book.publisher %></li>
-        <li class="item">投稿日：2020/12/13</li>
-        <li class="item">ジャンル：文芸・小説</li>
+        <li class="item">投稿日：<%= @book.created_at.strftime('%Y/%m/%d') %></li>
+        <li class="item">ジャンル：<%= render "shared/genre", genre_id: @book.genre_id %></li>
         <li class="item">#タグ：
           <% @tag.map do |tag| %>
             <%= tag.tag_name %>
