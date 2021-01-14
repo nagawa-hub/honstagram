@@ -67,6 +67,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pry-rails'
+# ダッシュボード
+gem 'chartkick'
+gem 'groupdate'
+# ストレージ
 gem 'active_hash'
 gem "aws-sdk-s3", require: false
 # ブートストラップ

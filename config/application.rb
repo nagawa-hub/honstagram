@@ -10,7 +10,8 @@ module Honstagram
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-
+    # タイムゾーンを東京に設定
+    config.time_zone = 'Tokyo'
     # エラー表示
     config.i18n.default_locale = :ja
     config.action_view.field_error_proc = Proc.new do |html_tag, instance|
