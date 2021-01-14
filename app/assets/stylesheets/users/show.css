@@ -65,3 +65,30 @@
   width: 950px;
   margin: 15px auto;
 }
+.user-article .article-box{
+  display: block;
+  float: left;
+  width: 160px;
+  margin: 15px 15px;
+  box-shadow: 6px 6px 8px -4px rgba(0, 0, 0, 0.15);
+}
+.user-article .article-box
+.book-image{
+  width: 100%;
+  height: 200px;
+}
+.user-article .article-box
+.title{
+  font-size: 1.2rem;
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.user-article .article-box
+.author{
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
