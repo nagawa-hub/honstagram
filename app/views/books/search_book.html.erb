@@ -1,5 +1,7 @@
 <%= render "shared/header"%>
 
+<%# CSSはbooks/indexと同じ %>
+
 <div class="index-wrapper">
   <div class="clearfix">
     <% if @search.present? %>
@@ -11,6 +13,9 @@
     <% @results.map do |book| %>
       <%= link_to book_path(book.id), class:"article-box" do %>
         <%= image_tag(book.book_image, class:"book-image") %>
+        <div class="mask">
+          <div class="caption"><%= book.description %></div>
+        </div>
         <h3 class="title"><%= book.title %></h3>
         <p class="author"><%= book.author %></p>
       <% end %>

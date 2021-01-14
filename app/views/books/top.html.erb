@@ -22,6 +22,9 @@
         <% @new_books.map do |new_book| %>
           <%= link_to book_path(new_book.id), class:"article-box" do %>
             <%= image_tag(new_book.book_image, class:"book-image") %>
+            <div class="mask">
+              <div class="caption"><%= new_book.description %></div>
+            </div>
             <h3 class="title"><%= new_book.title %></h3>
             <p class="author"><%= new_book.author %></p>
             <p class="date"><%= new_book.created_at.strftime('%Y/%m/%d') %></p>

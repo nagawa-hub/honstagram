@@ -17,3 +17,28 @@
   height: 100%;
   height: 240px;
 }
+.index-wrapper .article-box
+.mask{
+  width: 100%;
+  height: 240px;
+  padding: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color:	rgba(0,0,0,0.3);
+  -webkit-transition:	all 0.2s ease;
+  transition:		all 0.2s ease;
+  
+}
+.index-wrapper .article-box
+.caption{
+  color: #fff;
+  font-size: 0.9rem;
+  height: 240px;
+  overflow: hidden;
+}
+.index-wrapper .article-box
+.mask:hover{
+  opacity: 1;
+}
