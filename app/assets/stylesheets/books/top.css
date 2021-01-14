@@ -6,11 +6,6 @@
   width: 1120px;
   margin: 30px auto 40px;
 }
-.clearfix::after{
-  content: '';
-  display: block;
-  clear: both;
-}
 
 /* メイン */
 .main{
