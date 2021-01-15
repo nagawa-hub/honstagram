@@ -8,6 +8,10 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
+// ダッシュボード
+require("chartkick")
+require("chart.js") 
+
 // ブートストラップ
 //= require jquery3
 //= require popper

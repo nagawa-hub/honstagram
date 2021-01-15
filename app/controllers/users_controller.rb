@@ -28,7 +28,8 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-
+    @user_books = @user.books
+    @monthly_count = @user_books.group(:created_at).count
   end
 
   def followed_user
