@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user_books = @user.books
-    @monthly_count = @user_books.group(:created_at).count
+    @data = [['2019-06-01', 100], ['2019-06-02', 200], ['2019-06-03', 150]]
   end
 
   def followed_user
