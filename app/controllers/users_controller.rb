@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show,:edit,:update,:following_user,:followed_user]
-  before_action :set_search, only: [:show,:edit,:following_user,:followed_user]
+  before_action :set_user, only: [:show,:edit,:update,:dashboard,:following_user,:followed_user]
+  before_action :set_search, only: [:show,:edit,:dashboard,:following_user,:followed_user]
   before_action :set_user_count, only: [:show,:edit,:followed_user,:following_user]
   
   def show
@@ -25,6 +25,10 @@ class UsersController < ApplicationController
     end
     sign_in user
     redirect_to root_path
+  end
+
+  def dashboard
+
   end
 
   def followed_user
