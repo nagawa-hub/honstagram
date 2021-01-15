@@ -43,7 +43,8 @@ https://honsta-gram.com/
 このページからレビューの投稿と確認が可能です。またお気に入り登録ボタンを押すと自分のマイページのお気に入り一覧に追加することができます。
 
 ## 開発環境
-Ruby on Rails ver 6.0.0 / AWS / MariaDB
+Ruby on Rails ver 6.0.0 / MariaDB
+AWS EC2 / S3 / Route53 / ALB
 
 ## 今後の実装予定
 ソート機能 / 非同期での投稿機能 / ユーザー検索機能 / テストコード
