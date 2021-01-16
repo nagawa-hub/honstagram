@@ -1,3 +1,7 @@
 <%= render "shared/header" %>
 
-<%= line_chart @data, width: "800px", height: "500px" %>
+<div class="dash-wrapper">
+  <h3 class="dash-header">読書データ</h3>
+  <%= column_chart @monthly_count %>
+  <%= pie_chart @user_genre %>
+</div>

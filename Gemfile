@@ -87,3 +87,4 @@ gem 'rails-i18n'
 gem "gretel"
 # ダッシュボード
 gem "chartkick"
+gem "groupdate"
