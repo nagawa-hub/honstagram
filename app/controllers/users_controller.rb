@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user_books = @user.books
-    @monthly_count = @user_books.group_by_month(:created_at).count
+    @monthly_count = @user_books.group(:created_at).count
     initial_genre = @user_books.group(:genre_id).count
     convert_table = {1=>"小説・文芸",2=>"社会・ビジネス",3=>"旅行・地図",4=>"趣味",5=>"実用・教育",6=>"アート・教養・エンタメ",
                      7=>"語学・辞書",8=>"こども",9=>"雑誌",10=>"コミック・ラノベ",11=>"その他"}
