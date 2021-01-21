@@ -2,6 +2,7 @@ class Review < ApplicationRecord
   # association
   belongs_to :user
   belongs_to :book
+  has_many :notifications, dependent: :destroy
 
   # validation
   with_options presence: true do
