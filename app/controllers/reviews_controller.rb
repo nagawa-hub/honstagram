@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
   def create
     @review = @book.reviews.create(review_params)
     if @review.valid?
+      @book.create_notification_review!(current_user, @review.id)
       redirect_to book_reviews_path(@book)
     else
       set_search

@@ -17,6 +17,16 @@ class Book < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  def create_notification_review!(current_user, review_id)
+    notification = current_user.active_notifications.new(
+      visited_id: user_id,
+      book_id: id,
+      review_id: review_id,
+      action: 'review'
+    )
+    notification.save if notification.valid?
+  end
+
   # validation
   with_options presence: true do
     validates :title
