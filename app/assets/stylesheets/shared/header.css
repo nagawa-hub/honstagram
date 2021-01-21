@@ -74,12 +74,6 @@
   font-size: 2em;
   color: black;
 }
-.header-icon .compass:hover{
-  color: #1DA1F2;
-}
-.header-icon .heart:hover{
-  color: #FF4F50;
-}
 .header-icon :hover{
   cursor: pointer;
 }
