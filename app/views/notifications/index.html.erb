@@ -1,0 +1,42 @@
+<%= render "shared/header" %>
+
+<div class="notification-main">
+  <h3>通知</h3>
+  <ul class="notification-list">
+  <% @notifications.map do |notification| %>
+    <% case notification.action %>
+    <% when 'follow' %>
+      <li class="item">
+        <%= link_to user_path(notification.visitor_id) do %>
+          <% if notification.visitor.user_image.blank? %>
+            <%= image_tag asset_path("noimage.png"), class: "user-image" %>
+          <% else %>
+            <%= image_tag(notification.visitor.user_image.to_s, class: "user-image") %>
+          <% end %>
+        <% end %>
+        <div class="item-info">
+          <p><%= notification.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+          <p>
+            <%= link_to notification.visitor.user_name, user_path(notification.visitor_id) %>さんがあなたをフォローしました。
+          </p>
+        </div>
+      </li>
+    <% when 'review' %>
+      <li class="item">
+        <%= link_to book_reviews_path(notification.book_id) do %>
+          <%= image_tag(notification.book.book_image, class: "book-image") %>
+        <% end %>
+        <div class="item-info">
+          <p><%= notification.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+          <p>
+            <%= link_to notification.visitor.user_name, user_path(notification.visitor_id) %>さんがレビューを投稿しました。
+          </p>
+        </div>
+      </li>
+    <% end %>
+  <% end %>
+  </ul>
+
+  <%= paginate @notifications %>
+  
+</div>

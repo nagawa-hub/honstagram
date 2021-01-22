@@ -1,0 +1,30 @@
+.notification-main{
+  width: 860px;
+  margin: 30px auto 40px;
+}
+.notification-list{
+
+}
+.notification-list .item{
+  display: flex;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.notification-list .item
+.user-image{
+  height: 90px;
+  width: 90px;
+}
+.notification-list .item
+.book-image{
+  height: 90px;
+  width: 70px;
+  margin: 0 10px;
+}
+
+.notification-list .item
+.item-info{
+  margin-left: 10px;
+}

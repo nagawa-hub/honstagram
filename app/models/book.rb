@@ -12,6 +12,10 @@ class Book < ApplicationRecord
   # お気に入り機能
   has_many :favorites
   has_many :users, through: :favorites
+  # 通知機能
+  has_many :notifications, dependent: :destroy
+
+
 
   def favorite?(user)
     favorites.where(user_id: user.id).exists?
