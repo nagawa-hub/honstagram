@@ -3,6 +3,9 @@
 <div class="notification-main">
   <h3>通知</h3>
   <ul class="notification-list">
+  <% if @notifications.empty? %>
+    <p>フォロー、又はあなたの投稿にレビューがされた場合に通知されます。</p>
+  <% end %>
   <% @notifications.map do |notification| %>
     <% case notification.action %>
     <% when 'follow' %>
@@ -38,5 +41,5 @@
   </ul>
 
   <%= paginate @notifications %>
-  
+
 </div>
