@@ -2,9 +2,6 @@
   width: 860px;
   margin: 30px auto 40px;
 }
-.notification-list{
-
-}
 .notification-list .item{
   display: flex;
   height: 100px;

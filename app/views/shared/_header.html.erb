@@ -29,9 +29,12 @@
             <span class="heart"><i class="far fa-heart"></i></span>
           <% end %>
         </li>
-        <li class="header-icon">
+        <li class="header-icon bell-icon">
           <%= link_to notifications_path do %>
             <i class="far fa-bell"></i>
+            <% if unchecked_notifications.any? %>
+              <span class="bell-count"><%= @uncheck_notifications.count %></span>
+            <% end %>
           <% end %>
         </li>
         <li class="header-icon">

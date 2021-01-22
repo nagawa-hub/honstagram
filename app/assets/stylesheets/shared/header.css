@@ -77,6 +77,24 @@
 .header-icon :hover{
   cursor: pointer;
 }
+.bell-icon{
+  position: relative;
+} 
+.bell-icon .bell-count{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: red;
+  font-size: 8px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 16px;
+  text-align: center;
+  position: absolute;
+  bottom: 6px;
+  right: -6px;
+}
 .header-right .dots-list{
   position: absolute;
   right: 15px;
