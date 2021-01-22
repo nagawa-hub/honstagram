@@ -19,6 +19,7 @@
   height: 90px;
   width: 70px;
   margin: 0 10px;
+  box-shadow: 6px 6px 8px -4px rgba(0, 0, 0, 0.15);
 }
 
 .notification-list .item
