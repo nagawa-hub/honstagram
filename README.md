@@ -21,9 +21,11 @@ https://honsta-gram.com/
 
 ## アプリケーション機能
 ### トップページ
-![honsta_top](https://user-images.githubusercontent.com/72905756/103166083-f38c0700-4861-11eb-9d2c-7fbec1be8781.jpg)
+![93d0559a2a9ce81fb2939809f4d6f5c6](https://user-images.githubusercontent.com/72905756/105474624-cce6b200-5ce1-11eb-800a-3bf56192b68f.jpg)
 
 トップページには新規投稿とランキングが表示されます。
+
+ログイン時のヘッダーからはマイページ、お気に入り一覧、通知一覧、ダッシュボードへ遷移することができます。
 
 ### ユーザーページ
 ![honsta_user](https://user-images.githubusercontent.com/72905756/103166116-449bfb00-4862-11eb-959e-ff08b15bf1b6.jpg)
@@ -48,7 +50,7 @@ Ruby on Rails ver 6.0.0 / MariaDB
 AWS EC2 / S3 / Route53 / ALB
 
 ## 今後の実装予定
-ソート機能 / 非同期での投稿機能 / ユーザー検索機能 / テストコード
+ソート機能 / 非同期での投稿機能 / ユーザー検索機能 / 結合テスト
 
 ## DB設計
 <img width="828" alt="248199ce6fb5d3fa288ed9c7c95bb03d" src="https://user-images.githubusercontent.com/72905756/103166346-80d05b00-4864-11eb-9108-27abefd29485.png">
