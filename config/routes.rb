@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :books, only: [:index,:new,:create,:show,:edit,:update] do
     collection do
       get :top,:search_book
+      get :search_word, defaults: {format: :json}
     end
     resources :reviews, only: [:index,:new,:create]
     resources :favorites, only: [:create,:destroy]

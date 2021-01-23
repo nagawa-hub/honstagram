@@ -67,6 +67,14 @@ class BooksController < ApplicationController
     @results_count = @q.result.count
   end
 
+  def search_word
+    @words = Book.where('title LIKE(?)', "%#{params[:word]}%").limit(3)
+    respond_to do |format|
+      format.html { redirect_to :root }
+      format.json { render json: @words }
+    end
+  end
+
   private
   def set_search
     @q = Book.ransack(params[:q]) 

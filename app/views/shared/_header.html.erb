@@ -9,7 +9,8 @@
       <%= f.search_field :title_or_author_cont, class:"search-field", id:"search-field", placeholder:"本 / 著者で検索する" %>
       <%= f.button type:"submit" do %><i class="fas fa-search"></i><% end %>
     <% end %>
-    
+    <ul class="searching-list">
+    </ul>
   </div>
   <div class="header-right">
     <% if user_signed_in? %>

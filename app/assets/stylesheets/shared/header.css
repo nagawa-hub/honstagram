@@ -22,6 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .search_container{
@@ -55,6 +56,23 @@
   right: 0;
   top: -8px;
   outline : none;
+}
+.header-search .searching-list{
+  width: 260px;
+  padding: 5px 10px;
+  position: absolute;
+  background-color: #F4F5F7;
+  top: 55px;
+  border: 1px solid #ccc;
+  display: none;
+}
+.header-search .searching-list
+.item{
+  margin-top: 5px;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* ヘッダーアイコン */
