@@ -27,6 +27,10 @@ https://honsta-gram.com/
 
 ログイン時のヘッダーからはマイページ、お気に入り一覧、通知一覧、ダッシュボードへ遷移することができます。
 
+![ea60f4d4a075953dc4d204da4df84156](https://user-images.githubusercontent.com/72905756/105624008-9172f180-5e61-11eb-906d-1aad61f7a38c.gif)
+
+検索フォームに文字を入力すると投稿されているかどうかを予測変換で表示させます。
+
 ### ユーザーページ
 ![honsta_user](https://user-images.githubusercontent.com/72905756/103166116-449bfb00-4862-11eb-959e-ff08b15bf1b6.jpg)
 
