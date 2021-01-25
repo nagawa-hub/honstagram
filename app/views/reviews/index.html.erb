@@ -89,9 +89,24 @@
         <%= f.text_field :review_comment, class:"text-area", placeholder:"レビューを記入" %>
       </div>
 
-      <div class="field">
-        <%= f.text_field :review_score, placeholder:"スコア：1〜5" %>
+      <div class="review-bottom-area">
+        <div id="star">
+          <%= f.hidden_field :review_score %>
+        </div>
+
+        <script>
+          $('#star').raty({
+            size     : 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+
+            scoreName: 'review[review_score]',
+            half: false,
+          });
+        </script>
+
         <%= f.submit "投稿する" %>
       </div>
     <% end %>
   </div>
+</div>

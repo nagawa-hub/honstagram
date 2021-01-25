@@ -7,7 +7,7 @@ require("@rails/ujs").start()
 // require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("jquery")
+window.$ = window.jQuery = require('jquery');
 
 // ダッシュボード
 require("chartkick")
@@ -17,10 +17,10 @@ require("chart.js")
 //= require popper
 //= require bootstrap
 
-// JS
 require('./preview')
 require('./header_pulldown')
 require('./create_review')
+require('./raty')
 require('./search_word')
 
 // Uncomment to copy all static images under ../images to the output folder and reference
