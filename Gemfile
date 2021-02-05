@@ -88,3 +88,5 @@ gem "gretel"
 # ダッシュボード
 gem "chartkick"
 gem "groupdate"
+
+gem 'activeadmin'
