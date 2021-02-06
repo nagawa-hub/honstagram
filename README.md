@@ -49,7 +49,7 @@ https://honsta-gram.com/
 このページからレビューの投稿と確認が可能です。またお気に入り登録ボタンを押すと自分のマイページのお気に入り一覧に追加することができます。
 
 ## 開発環境
-Ruby on Rails ver 6.0.0 / MariaDB / nginx
+Ruby on Rails ver 6.0.0 / jQuery / MariaDB / nginx
 
 AWS EC2 / S3 / Route53 / ALB
 
