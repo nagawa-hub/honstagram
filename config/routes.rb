@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   devise_for :users
   post '/users/guest_sign_in', to: 'users#guest'
   root to: "books#top"
